@@ -65,6 +65,7 @@ module.exports = {
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-emoji`,
         ],
+        excerpt_separator: `<!-- thumbnail -->`,
       },
     },
     {

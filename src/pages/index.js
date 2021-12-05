@@ -79,12 +79,12 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 200, truncate: true)
+          excerpt(pruneLength: 50, format: HTML, truncate: true)
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY년 MM월DD일")
             title
             category
             draft

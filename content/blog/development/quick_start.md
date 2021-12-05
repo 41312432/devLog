@@ -7,6 +7,8 @@ draft: false
 
 # Getting Started 😎
 
+<!-- thumbnail -->
+
 ## 1. Create a Gatsby site.
 
 ```sh
