@@ -1,11 +1,11 @@
 ---
-title: 'Quick Start'
+title: '한글 제목 Test 🍰'
 date: 2020-07-05 17:21:13
 category: 'development'
 draft: false
 ---
 
-> 썸네일에 보이는 내용
+한글 소제목 테스트입니다
 
 <!-- thumbnail -->
 

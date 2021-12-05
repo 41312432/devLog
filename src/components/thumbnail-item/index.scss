@@ -11,7 +11,9 @@
   opacity: 0;
 
   p {
-    font-size: 90%;
+    padding-left: 10px;
+    font-size: 100%;
+    font-weight: 400;
   }
 
   article {
@@ -20,6 +22,8 @@
     color: $middle-gray;
 
     h3 {
+      display: flex;
+      justify-content: space-between;
       font-size: 175%;
       font-weight: bolder;
     }
@@ -50,9 +54,6 @@
       display: none;
     }
   }
-}
-
-.thumbnail:hover {
 }
 
 .thumbnail.visible {

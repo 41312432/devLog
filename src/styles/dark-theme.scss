@@ -52,6 +52,7 @@ body.dark {
     }
     p {
       color: $dark-middle-font-color;
+      color: $thumbnail-subheading-color;
     }
     &:hover {
       text-shadow: $dark-hover-text-shadow;
@@ -88,6 +89,6 @@ body.dark {
   }
 
   .thumbnail-date {
-    color: $thumbnail-date-color;
+    color: $middle-gray;
   }
 }
