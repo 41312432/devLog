@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+ Sitemap: https://41312432.netlify.app/sitemap.xml
+ Host: https://41312432.netlify.app
