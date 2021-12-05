@@ -44,6 +44,8 @@ body.light {
   }
 
   .thumbnail {
+    transition: 0.2s ease-in;
+
     h3 {
       color: $dark-gray;
     }
@@ -52,6 +54,8 @@ body.light {
     }
     &:hover {
       text-shadow: $light-hover-text-shadow;
+      background-color: $thumbnail-hover-background-color;
+      transform: scale(1.01);
     }
   }
 
@@ -68,5 +72,9 @@ body.light {
       background-color: $navigator-background-color;
       color: $navigator-text-color;
     }
+  }
+
+  .thumbnail-date {
+    color: $thumbnail-date-color;
   }
 }

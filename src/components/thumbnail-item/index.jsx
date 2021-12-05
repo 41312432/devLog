@@ -14,7 +14,7 @@ export const ThumbnailItem = ({ node }) => {
             {node.frontmatter.date}
           </time>
         </h3>
-        <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        <article dangerouslySetInnerHTML={{ __html: node.excerpt }} />
       </article>
     </Link>
   )
