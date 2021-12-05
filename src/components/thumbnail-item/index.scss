@@ -11,9 +11,9 @@
   opacity: 0;
 
   p {
-    padding-left: 10px;
+    font-style: italic;
     font-size: 100%;
-    font-weight: 400;
+    font-weight: 300;
   }
 
   article {
@@ -24,8 +24,8 @@
     h3 {
       display: flex;
       justify-content: space-between;
-      font-size: 175%;
-      font-weight: bolder;
+      font-size: 150%;
+      font-weight: 600;
     }
 
     time {
