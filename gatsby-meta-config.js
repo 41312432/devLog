@@ -1,9 +1,9 @@
 module.exports = {
-  title: `41312432`,
-  description: `WansikJo Devlog`,
+  title: `new DevLog(\`41312432\`)`,
+  description: `WansikJo's Devlog`,
   author: `Jo WanSik`,
-  introduction: `Studying Software & Computer Engineering at @Ajou Univ.`,
-  siteUrl: `https://41312432.github.io`, // Your blog site url
+  introduction: `The greatest weakness of all weaknesses is to fear too much to appear weak - J.B. Bossuet`,
+  siteUrl: `https://41312432.netflify.app`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: `41312432`, // Your GitHub account
@@ -16,13 +16,13 @@ module.exports = {
   keywords: [`blog`],
   comment: {
     disqusShortName: '41312432-github-io.disqus.com', // Your disqus-short-name. check disqus.com.
-    utterances: '41312432/41312432.github.io', // Your repository for archive comment
+    utterances: '41312432/devLog', // Your repository for archive comment
   },
   configs: {
     countOfInitialPost: 10, // Config your initial count of post
   },
   sponsor: {
-    buyMeACoffeeId: 'jbee',
+    buyMeACoffeeId: '',
   },
   share: {
     facebookAppId: '', // Add facebookAppId for using facebook share feature v3.2
