@@ -1,5 +1,5 @@
 module.exports = {
-  title: `new DevLog(\`41312432\`)`,
+  title: `41312432`,
   description: `WansikJo's Devlog`,
   author: `Jo WanSik`,
   introduction: `The greatest weakness of all weaknesses is to fear too much to appear weak - J.B. Bossuet`,

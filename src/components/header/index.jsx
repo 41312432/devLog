@@ -9,7 +9,11 @@ export const Header = ({ title, location, rootPath }) => {
     isRoot && (
       <h1 className="home-header">
         <Link to={`/`} className="link">
-          {title}
+          <div className="new">new&nbsp;&nbsp;</div>
+          <div className="class">DevLog</div>
+          <div className="bracket">(</div>
+          <div className="parameter">`{title}`</div>
+          <div className="bracket">)</div>
         </Link>
       </h1>
     )
