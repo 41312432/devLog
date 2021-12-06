@@ -1,6 +1,16 @@
 // app
-$theme-gradient: linear-gradient(72deg, #291e95, #cc007a);
+// $theme-gradient: linear-gradient(72deg, #291e95, #cc007a);
+$theme-gradient: linear-gradient(
+  90deg,
+  rgba(0, 101, 110, 1) 0%,
+  rgba(19, 110, 140, 1) 20%,
+  rgba(72, 116, 164, 1) 40%,
+  rgba(125, 118, 175, 1) 60%,
+  rgba(174, 118, 171, 1) 80%,
+  rgba(211, 120, 153, 1) 100%
+);
 $top-header-text-color: #fff;
+$top-header-text-hover-color: #ff8c41;
 
 /**
  * @light theme

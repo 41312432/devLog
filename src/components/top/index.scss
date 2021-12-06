@@ -16,4 +16,9 @@
     font-family: 'Catamaran';
     font-weight: 800;
   }
+
+  .link:hover {
+    color: $top-header-text-hover-color;
+    transform: scale(1.02);
+  }
 }
