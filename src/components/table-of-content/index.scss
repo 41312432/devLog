@@ -1,15 +1,14 @@
 @import '../../styles/variables.scss';
 
 nav.container {
-  margin-top: 40px;
+  margin-top: 50px;
   width: calc((100vw - 720px) / 2 - 50px);
   display: none;
   @media screen and (min-width: 1200px) {
     position: sticky;
     top: 70px;
     display: block;
-    max-width: 360px;
-    margin-right: 20px;
+    max-width: 280px;
     overflow: auto;
     word-break: break-word;
     max-height: calc(100vh - 200px);

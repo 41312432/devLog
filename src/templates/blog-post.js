@@ -73,7 +73,7 @@ export default ({ data, pageContext, location }) => {
             position: 'absolute',
             top: 0,
             height: '100%',
-            right: 'calc((100vw - 720px) / 2 * (-1))',
+            right: 'calc((100vw - 720px) / 2.5 * (-1))',
           }}
         >
           <TableOfContents
