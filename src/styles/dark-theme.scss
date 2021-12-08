@@ -91,4 +91,33 @@ body.dark {
   .thumbnail-date {
     color: $middle-gray;
   }
+
+  nav.container {
+    .title {
+      margin-bottom: 15px;
+      margin-left: 20px;
+      color: $dark-toc-heading-color;
+    }
+    .contents {
+      ul {
+        list-style: none;
+        margin-left: 20px;
+        margin-bottom: 0px;
+      }
+      ul > li {
+        line-height: 1.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      ul > li a {
+        color: $dark-toc-content-color;
+      }
+      ul > li a.isCurrent {
+        font-size: 15px;
+        color: $dark-toc-current-color;
+        font-weight: 600;
+      }
+    }
+  }
 }

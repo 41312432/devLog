@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+nav.container {
+  margin-top: 40px;
+  width: calc((100vw - 720px) / 2 - 50px);
+  display: none;
+  @media screen and (min-width: 1200px) {
+    position: sticky;
+    top: 70px;
+    display: block;
+    max-width: 360px;
+    margin-right: 20px;
+    overflow: auto;
+    word-break: break-word;
+    max-height: calc(100vh - 200px);
+    font-size: 14px;
+  }
+  .title {
+    margin-bottom: 15px;
+    margin-left: 20px;
+    color: $light-toc-heading-color;
+  }
+  .contents {
+    ul {
+      list-style: none;
+      margin-left: 20px;
+      margin-bottom: 0px;
+    }
+    ul > li {
+      line-height: 1.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    ul > li a {
+      color: $light-toc-content-color;
+    }
+    ul > li a.isCurrent {
+      font-size: 15px;
+      color: $light-toc-current-color;
+      font-weight: 600;
+    }
+  }
+}

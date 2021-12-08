@@ -16,6 +16,8 @@ export const Layout = ({ location, title, children }) => {
       <Top title={title} location={location} rootPath={rootPath} />
       <div
         style={{
+          position: 'relative',
+          height: '100%',
           marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(32),

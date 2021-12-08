@@ -23,7 +23,7 @@ $light-hover-text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 
 // index
 $dimmed-color: #eef5db;
-$light-link-color: #00c8e9;
+$light-link-color: #0a9696;
 $dark-gray: #333;
 $middle-gray: #7d7d7d;
 $light-gray: #aaa;
@@ -50,11 +50,16 @@ $light-category-text-color: #666;
 $light-category-highlight-text-color: #636c6e;
 $light-category-item-color: #fff;
 
+// toc
+$light-toc-heading-color: black;
+$light-toc-content-color: rgba(10, 150, 150, 0.5);
+$light-toc-current-color: #0a9696;
+
 /**
  * @dark theme
  */
 $dark-background-color: #282c35;
-$dark-link-color: #d37899;
+$dark-link-color: #ff8c41;
 
 $dark-lightest-font-color: #fff;
 $dark-light-font-color: #eeeeee;
@@ -72,3 +77,7 @@ $dark-category-text-color: #d8d7d7;
 $dark-category-highlight-border-color: #666;
 $dark-category-highlight-text-color: #fff;
 $dark-hover-background-color: rgba(255, 255, 255, 0.125);
+
+$dark-toc-heading-color: #eeeeee;
+$dark-toc-content-color: rgba(255, 140, 65, 0.5);
+$dark-toc-current-color: #ff8c41;
