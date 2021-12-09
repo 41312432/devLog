@@ -15,7 +15,6 @@ module.exports = {
   icon: `content/assets/felog.png`, // Add your favicon
   keywords: [`blog`],
   comment: {
-    disqusShortName: '41312432-github-io.disqus.com', // Your disqus-short-name. check disqus.com.
     utterances: '41312432/devLog', // Your repository for archive comment
   },
   configs: {

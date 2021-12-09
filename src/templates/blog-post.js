@@ -8,7 +8,6 @@ import { PostDate } from '../components/post-date'
 import { PostContainer } from '../components/post-container'
 import { Bio } from '../components/bio'
 import { PostNavigator } from '../components/post-navigator'
-import { Disqus } from '../components/disqus'
 import { Utterances } from '../components/utterances'
 import { TableOfContents } from '../components/table-of-content'
 import * as ScrollManager from '../utils/scroll'
@@ -82,14 +81,6 @@ export default ({ data, pageContext, location }) => {
       <Elements.Hr />
       <Bio />
       <PostNavigator pageContext={pageContext} />
-      {!!disqusShortName && (
-        <Disqus
-          post={post}
-          shortName={disqusShortName}
-          siteUrl={siteUrl}
-          slug={pageContext.slug}
-        />
-      )}
       {!!utterances && <Utterances repo={utterances} />}
     </Layout>
   )
@@ -103,7 +94,6 @@ export const pageQuery = graphql`
         author
         siteUrl
         comment {
-          disqusShortName
           utterances
         }
       }
