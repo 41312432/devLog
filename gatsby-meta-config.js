@@ -3,7 +3,7 @@ module.exports = {
   description: `WansikJo's Devlog`,
   author: `Jo WanSik`,
   introduction: `The greatest weakness of all weaknesses is to fear too much to appear weak - J.B. Bossuet`,
-  siteUrl: `https://41312432.netflify.app`, // Your blog site url
+  siteUrl: `https://41312432.netlify.app`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: `41312432`, // Your GitHub account

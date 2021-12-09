@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
-
 import * as Elements from '../components/elements'
 import { Layout } from '../layout'
 import { Head } from '../components/head'
