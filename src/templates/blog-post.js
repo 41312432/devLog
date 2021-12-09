@@ -107,9 +107,6 @@ export const pageQuery = graphql`
           disqusShortName
           utterances
         }
-        sponsor {
-          buyMeACoffeeId
-        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
