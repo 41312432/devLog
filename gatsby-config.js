@@ -1,3 +1,4 @@
+const { left } = require('inquirer/lib/utils/readline')
 const metaConfig = require('./gatsby-meta-config')
 
 module.exports = {
@@ -38,6 +39,9 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
+              showCaptions: true,
+              markdownCaptions: true,
+              wrapperStyle: `margin-left: 0px;`,
               linkImagesToOriginal: false,
             },
           },
