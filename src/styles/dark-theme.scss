@@ -50,10 +50,6 @@ body.dark {
     h3 {
       color: $dark-light-font-color;
     }
-    p {
-      color: $dark-middle-font-color;
-      color: $thumbnail-subheading-color;
-    }
     &:hover {
       text-shadow: $dark-hover-text-shadow;
       background-color: $dark-hover-background-color;
@@ -88,11 +84,6 @@ body.dark {
   td {
     border-bottom: 1px solid #eee;
   }
-
-  .thumbnail-date {
-    color: $middle-gray;
-  }
-
   nav.container {
     .title {
       margin-bottom: 15px;
@@ -125,5 +116,9 @@ body.dark {
   .language-text {
     background-color: $dark-inline-dimmed-color;
     color: $dark-inline-text-color;
+  }
+
+  .thumbnail-date {
+    color: $post-time-color;
   }
 }

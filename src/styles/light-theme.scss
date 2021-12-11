@@ -49,9 +49,6 @@ body.light {
     h3 {
       color: $dark-gray;
     }
-    p {
-      color: $thumbnail-subheading-color;
-    }
     &:hover {
       text-shadow: $light-hover-text-shadow;
       background-color: $light-hover-background-color;
@@ -75,6 +72,6 @@ body.light {
   }
 
   .thumbnail-date {
-    color: $middle-gray;
+    color: $post-time-color;
   }
 }
