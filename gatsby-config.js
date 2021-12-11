@@ -45,7 +45,6 @@ module.exports = {
               maxWidth: 1200,
               showCaptions: true,
               markdownCaptions: true,
-              wrapperStyle: `background-color:#f1f1f1; border-radius:10px;`,
               linkImagesToOriginal: false,
             },
           },
