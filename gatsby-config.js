@@ -30,6 +30,10 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-code-titles',
+            options: {},
+          },
+          {
             resolve: `gatsby-remark-katex`,
             options: {
               strict: `ignore`,
@@ -61,7 +65,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              inlineCodeMarker: '%',
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
             },
           },
           {

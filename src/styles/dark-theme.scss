@@ -71,6 +71,7 @@ body.dark {
   // post
   blockquote {
     border-left: 4px solid rgba(255, 255, 255, 0.822);
+    color: $dark-blockquote-text-color;
   }
 
   h1,
@@ -119,5 +120,10 @@ body.dark {
         font-weight: 600;
       }
     }
+  }
+
+  .language-text {
+    background-color: $dark-inline-dimmed-color;
+    color: $dark-inline-text-color;
   }
 }

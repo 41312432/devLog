@@ -36,11 +36,11 @@ $light-hover-background-color: rgba(10, 10, 10, 0.05);
 // blog-templates
 $navigator-text-color: #cc007a;
 $navigator-background-color: #fceff7;
-$blockquote-text-color: #999;
+$blockquote-text-color: #0a9696;
 
 // code
-$inline-dimmed-color: #ece5f1;
-$inline-text-color: #4b2043;
+$inline-dimmed-color: #0a969677;
+$inline-text-color: #333;
 
 // category
 $light-category-border-color: #ecf0f2;
@@ -68,6 +68,9 @@ $dark-middle-font-color: #d8d7d7;
 $dark-text-shadow: 0 0 0.1px rgba(255, 255, 255, 0.3);
 $dark-hover-text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
 
+$dark-inline-text-color: #eeeeee;
+$dark-inline-dimmed-color: #ff8c4177;
+
 $dark-category-item-color: #282c35;
 $dark-category-background-color: #24272c;
 
@@ -81,3 +84,5 @@ $dark-hover-background-color: rgba(255, 255, 255, 0.125);
 $dark-toc-heading-color: #eeeeee;
 $dark-toc-content-color: rgba(255, 140, 65, 0.5);
 $dark-toc-current-color: #ff8c41;
+
+$dark-blockquote-text-color: #ff8c41;
