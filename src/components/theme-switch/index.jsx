@@ -77,20 +77,10 @@ export const ThemeSwitch = () => {
           id="normal-switch"
           height={24}
           width={48}
-          checkedIcon={
-            <div className="icon checkedIcon">
-              <MoonIcon />
-            </div>
-          }
-          uncheckedIcon={
-            <div className="icon uncheckedIcon">
-              <SunIcon />
-            </div>
-          }
           offColor={'#d9dfe2'}
-          offHandleColor={'#fff'}
+          offHandleColor={'#0a9696'}
           onColor={'#999'}
-          onHandleColor={'#282c35'}
+          onHandleColor={'#ff8c41'}
         />
       </label>
     </div>
