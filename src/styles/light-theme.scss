@@ -74,4 +74,12 @@ body.light {
   .thumbnail-date {
     color: $post-time-color;
   }
+
+  .katex-display {
+    margin: 0;
+    padding: 2em 0;
+    margin: 0.5em;
+    border: 1.5px solid $light-link-color;
+    border-radius: 0.6em;
+  }
 }
