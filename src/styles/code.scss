@@ -109,6 +109,7 @@ pre[class*='language-'] {
   white-space: normal;
   background: $inline-dimmed-color;
   color: $inline-text-color;
+  font-weight: bold;
 }
 
 .token.comment,
@@ -349,4 +350,17 @@ pre[class='language-diff']::before {
   content: 'diff';
   background: #e8bd36;
   color: white;
+}
+
+:not(pre) > code[class*='language-txt'],
+pre[class*='language-txt'] {
+  background: white;
+  color: gray;
+  border: $blockquote-text-color 1px solid;
+}
+
+code[class*='language-txt'],
+pre[class*='language-txt'] {
+  color: $blockquote-text-color;
+  text-align: center;
 }
