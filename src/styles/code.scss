@@ -357,10 +357,10 @@ pre[class*='language-txt'] {
   background: white;
   color: gray;
   border: $blockquote-text-color 1px solid;
+  padding: auto;
 }
 
 code[class*='language-txt'],
 pre[class*='language-txt'] {
-  color: $blockquote-text-color;
-  text-align: center;
+  color: #333;
 }

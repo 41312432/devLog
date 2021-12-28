@@ -82,4 +82,9 @@ body.light {
     border: 1.5px solid $light-link-color;
     border-radius: 0.6em;
   }
+
+  summary {
+    font-size: 1.25em;
+    color: #0a9696;
+  }
 }
