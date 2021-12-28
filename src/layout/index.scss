@@ -12,7 +12,7 @@ body {
 
 h1 {
   margin-top: 2em;
-  font-size: 2.4em;
+  font-size: 2.5em;
   letter-spacing: -1px;
   border-bottom: transparent !important;
 }
@@ -20,7 +20,7 @@ h1 {
 h2 {
   margin-top: 2em;
   margin-bottom: 0.2em;
-  font-size: 2.15em;
+  font-size: 2.3em;
   letter-spacing: -1px;
   border-bottom: transparent !important;
 }
@@ -28,12 +28,20 @@ h2 {
 h3 {
   margin-top: 1.5em;
   margin-bottom: 0.3em;
-  font-size: 1.5em;
+  font-size: 1.9em;
   letter-spacing: -1px;
   border-bottom: transparent !important;
 }
 
 h4 {
-  font-size: 1.25em;
+  font-size: 1.5em;
   letter-spacing: -1px;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+h6 {
+  margin-top: 0;
 }
