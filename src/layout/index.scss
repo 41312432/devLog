@@ -51,3 +51,12 @@ h6 {
   padding-top: 60px;
   margin-top: 0;
 }
+
+blockquote,
+li {
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+  }
+}
