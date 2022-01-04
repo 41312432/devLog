@@ -48,6 +48,7 @@ body.light {
 
     h3 {
       color: $dark-gray;
+      padding: 0.5em 0;
     }
     &:hover {
       text-shadow: $light-hover-text-shadow;
