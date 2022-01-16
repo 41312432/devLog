@@ -56,7 +56,7 @@ _학교에서 수강한 '알고리즘' 강의와 책 ⌜Foundation of Alogorithm
 
 ## Algorithm
 
-> #####_...Applying a technique to a problem results in a step-by-step procedure for solving the probelm. This step-by-step procedure is called an `algorithm` for the problem..._
+> _...Applying a technique to a problem results in a step-by-step procedure for solving the probelm. This step-by-step procedure is called an `algorithm` for the problem..._
 
 Program은 컴퓨터에 의해 이해될 수 있는 개별적인 module (ex, Sorting을 처리하는 module 등)</span>으로 구성된다. 이 text에서 우리는 전체적인 프로그램의 보다는, 각 module이 특정한 task를 처리하는 design에 대해 집중한다.
 
@@ -94,7 +94,7 @@ def sequential_search(s: list, x: int):
     return 0
 ```
 
-> ##### _순차 검색(sequential search), 또는 선형 검색(linear search)은 리스트에서 찾고자 하는 값을 맨 앞에서부터 끝까지 차례대로 탐색하는 알고리즘이다. - [출처](https://ko.wikipedia.org/wiki/순차*검색*알고리즘)_
+> _순차 검색(sequential search), 또는 선형 검색(linear search)은 리스트에서 찾고자 하는 값을 맨 앞에서부터 끝까지 차례대로 탐색하는 알고리즘이다. - [출처](https://ko.wikipedia.org/wiki/순차*검색*알고리즘)_
 
 <br>
 
@@ -117,7 +117,7 @@ def binary_search(s: list, x: int):
             low = mid +1
 ```
 
-> ##### _이진 검색(binary search)은 오름차순으로 정렬된 리스트에서 특정한 값을 찾는 알고리즘이다. 리스트에서 중간값과 대소를 비교하여 그 중간값을 다시 최대나 최솟값으로 하는 리스트에서 해당 과정을 반복한다._
+> _이진 검색(binary search)은 오름차순으로 정렬된 리스트에서 특정한 값을 찾는 알고리즘이다. 리스트에서 중간값과 대소를 비교하여 그 중간값을 다시 최대나 최솟값으로 하는 리스트에서 해당 과정을 반복한다._
 
 <br>
 
@@ -128,7 +128,7 @@ Binary Search의 경우 오직 약 6번의 비교 연산만을 수행한다.
 
 <br>
 
-![>##### _Binary Search when x is larger than all items in an array of size 32, Notice that 6 = lg 32 + 1_](picture/fig1-1.png)
+![> _Binary Search when x is larger than all items in an array of size 32, Notice that 6 = lg 32 + 1_](picture/fig1-1.png)
 
 <br>
 
@@ -190,7 +190,7 @@ Recursion으로 구현한 피보나치 수를 구하는 알고리즘과 같이 e
 따라서 우리는  
 **input size에 따른 알고리즘의 Basic Operation 연산 횟수**를 알고리즘의 efficiency를 측정하는 척도로 사용한다.
 
-> #####_Basic Operation : Comparison, Assignment, Loop, ..._
+> _Basic Operation : Comparison, Assignment, Loop, ..._
 
 ### input vs input size
 
