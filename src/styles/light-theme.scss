@@ -7,6 +7,13 @@ body.light {
     color: $dark-gray;
   }
 
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: $heading-one-color;
+  }
+
   .bio {
     .author-name-content {
       background-color: $light-category-border-color;

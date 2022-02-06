@@ -8,6 +8,13 @@ body.dark {
     color: $dark-light-font-color;
   }
 
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: $dark-heading-one-color;
+  }
+
   .bio {
     .author-name-content {
       background-color: $dark-category-border-color;
