@@ -59,6 +59,13 @@ h6 {
   margin-top: 0;
 }
 
+summary {
+  display: inline;
+  font-size: 1.25em;
+  cursor: pointer;
+  outline: none;
+}
+
 blockquote,
 li {
   h4,
