@@ -1,14 +1,14 @@
 ---
-title: '[Algorithm] Foundation of Algorithms Ch2.'
-date: 2021-12-27 20:40:31
+title: '[Algorithm] Foundation of Algorithms Ch3.'
+date: 2022-01-25 20:30:31
 category: 'algorithm'
 thumbnail: { thumbnailSrc }
 draft: false
 ---
 
-> _Divide-and-Conquer_
+> _Dynamic Programmning_
 
-_⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟의 2장 분할정복 알고리즘에 관해 정리하고자 한 글 입니다_
+_⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟의 3장 동적 프로그래밍 알고리즘에 관해 정리하고자 한 글 입니다._
 
 <!-- thumbnail -->
 
@@ -18,8 +18,8 @@ _⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟의 2장 분할정복 알
    <summary>RoadMap</summary>
 
 1. Algorithms; Efficiency, Analysis, and Order
-2. `Divide-and-Conquer`
-3. Dynamic Programming
+2. Divide-and-Conquer
+3. `Dynamic Programming`
 4. Greedy
 5. Backtracking
 6. Branch-and-Bound
@@ -35,18 +35,21 @@ _⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟의 2장 분할정복 알
 
 # Ch2. Divide-and-Conquer
 
-본 장에서는 Divide-and-Conquer(분할정복) 알고리즘에 대해 소개한다.
+> 분할정복
+
+본 장에서는 Dynamic Programming 알고리즘에 대해 소개한다.  
+몇몇 대표적인 알고리즘을 예시로 든다.
 
 ## Divide-and-Conquer
 
-> _...Napoleon drove against their center and split their forces in two. Because the two smaller armies were individually no match for Napoleon, they each suffered heavy loses and were compelled to retreat. By `dividing` the large army into two smaller armies and individuarlly conquering these two smaller armies, Napoleon was able to `conquer` the large army...._
+> #####_...Napoleon drove against their center and split their forces in two. Because the two smaller armies were individually no match for Napoleon, they each suffered heavy loses and were compelled to retreat. By `dividing` the large army into two smaller armies and individuarlly conquering these two smaller armies, Napoleon was able to `conquer` the large army...._
 
-Divide-and-Conquer 알고리즘은 말 그대로 problem의 optimal solution을 찾기 위해 instance를 둘 이상의 instance들로 `나누어(divide)`서 `해결하는(Conquer)` 알고리즘이다.
+Divide-and-Conquer(분할정복) 알고리즘은 말 그대로 Problem의 optimal solution을 찾기 위해 instance를 둘 이상의 instance들로 `나누어(divide)`서 `해결하는(Conquer)` 알고리즘이다.
 
 <br>
 
 1. problem의 instance를 두개나 그 이상의 더 작은 instance들로 `나눈다`(**divide**)
-   > 나누어진 instance들은 각각이 원래의 problem들의 instance이기 때문에, 나누어진 instance들로 얻을 수 있는 각각의 solution은 역시 원래의 problem의 solution을 구성한다.
+   ###### 나누어진 instance들은 각각이 원래의 problem들의 instance이기 때문에, 나누어진 instance들로 얻을 수 있는 각각의 solution은 역시 원래의 problem의 solution을 구성한다.
 
 2) soultion을 구할 수 있을때 까지 instance를 나누어 각 instance들을 `해결한다`(**conquer**)
 
@@ -56,7 +59,7 @@ Divide-and-Conquer 알고리즘은 말 그대로 problem의 optimal solution을 
 
 이 과정을 PseudoCode로 표현하면 다음과 같다.
 
-```js
+```text
 function F(x):
   if F(x) can be solved:
     return sol(F(x))   //Conquer
@@ -66,44 +69,40 @@ function F(x):
     return sol(F(x)) using F(y1), F(y2) //Combine
 ```
 
-<br>
-<br>
-
 Divide-and-Conquer 알고리즘은 `top-down` approach (하향식 접근법)이다.  
 즉, top-level의 solution은 밑으로 `내려가`면서 bottom-level instance들의 solution을 가지고 얻을 수 있다.
 
 이는 자연스럽게 Recursive procedure으로 생각할 수 있다.  
 즉, 주로 `Recursion`을 활용하여 divide-and-conquer 알고리즘을 설계한다.
 
-<br>
-<br>
-
-하지만 **iterative**하게 알고리즘을 설계할 수도 있다. 즉 stack이나 queue, priority queue등의 자료구조에 하위 problem을 저장하며 분할하는 알고리즘을 설계할 수도 있으며, 때때로 iterative routine이 더 효율적일 수도 있다.  
-이러한 접근방식은 다음에 해결할 하위 problem을 선택하는데 조금 더 자유로워질 수 있는데, 이는 일부 프로그램에 중요하게 작용한다.  
+하지만 **iterative**하게 알고리즘을 설계할 수도 있다. 즉 stack이나 queue, priority queue등의 명시적인 자료구조에 하위 problem을 저장하며 분할하는 알고리즘을 설계할 수도 있으며, 때때로 iterative routine이 더 효율적일 수도 있다.  
+이러한 접근방식은 다음에 해결한 하위 problem을 선택하는데 조금은 더 자유로울 수 있는데, 이는 일부 프로그램에 중요하게 작용한다.  
 이는 `branch-and-bound`를 다루는 장에서 자세하게 다시 살펴본다.
 
 <br>
 
-본격적으로 몇개의 대표적인 알고리즘을 예시로 들어 살펴본다.
+본격적으로 몇개의 대표적인 알고리즘을 예시로 들어 살펴보자.  
+처음으로 1장에서도 소개했던 Binary Search를 예를 들어 설명한다.
+
+---
 
 ## Binary Search, Decrease-and-Conquer
 
 1장에서 Iterative하게 구현한 Binary Search 알고리즘을 소개했다.  
 여기서는 **Recursive**하게 구현한 Binary Search를 소개한다. (top-down approach)
 
+Binary Search는 정렬된 배열에서 동작함을 항상 기억해야 한다.
+
 0. key x가 배열의 중간값과 같으면, 종료한다.
 
-1) list를 절반으로 `나눈다`(**divide**).
-
-   > Binary Search는 정렬된 배열에서 동작함을 항상 기억해야 한다.
-
+1. list를 절반으로 `나눈다`(**divide**).  
    key x가 중간값보다 작으면, 왼쪽 sub list를 선택한다.  
-    key x가 중간값보다 크면, 오른쪽 sub list를 선택한다.
+   key x가 중간값보다 크면, 오른쪽 sub list를 선택한다.
 
-2. key x가 선택한 sub list에 있는지 확인하여 `푼다`(**conquer**)  
+2) key x가 선택한 sub list에 있는지 확인하여 `푼다`(**conquer**)  
    sub list가 solution을 얻기에 충분히 작지 않다면 이를 반복한다.
 
-3) soulltion을 `얻는다`(**obtain**)
+3. soulltion을 `얻는다`(**obtain**)
 
 <br>
 
@@ -144,8 +143,7 @@ Recursive하게 구현한 binary search 알고리즘을 살펴보면, problem을
 
 어떤 사람들은 divide-and-conquer이라는 이름은 문제를 두개 또는 그 이상의 sub problem으로 나누는 알고리즘에만 쓰여야 하고, 위 같이 **단지 하나의 하위 problem**으로 줄여지는 알고리즘은 `decrease-and-conquer`이라는 이름을 사용해야 한다고 말한다.
 
-왜냐하면 위 같이 tail-recursion을 사용하는, 심지어는 tail-recursion을 loop로 간단하게 구현할 수 있기 때문에, 광범위하고 모호한 정의하에서는 모든 recursion이나 loop를 사용하는 알고리즘이 divide-and-conquer 알고리즘으로 간주되어질 수 있기 때문이다.  
-[출처](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm#Divide_and_conquer)
+왜냐하면 위 같이 tail-recursion을 사용하는, 심지어는 tail-recursion을 loop로 간단하게 구현할 수 있기 때문에, 광범위하고 모호한 정의하에서는 모든 recursion이나 loop를 사용하는 알고리즘이 divide-and-conquer 알고리즘으로 간주되어질 수 있기 때문이다. [출처](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm#Divide_and_conquer)
 
 ### efficiency
 
@@ -284,7 +282,7 @@ QuickSort는 every-case complexity가 존재하지 않기 때문에, Worst Case�
 
 QuickSort에서의 worst-case는 특이하게도 list가 이미 정렬되어 있을때 나타난다.
 
-> (여기서 구현한 알고리즘은 pivot을 list의 첫번째 원소로 규정하고, 정렬을 오름차순으로 정렬함을 기준으로 한다.)
+> ######(여기서 구현한 알고리즘은 pivot을 list의 첫번째 원소로 규정하고, 정렬을 오름차순으로 정렬함을 기준으로 한다.)
 
 왜냐하면 partition이 top-level에서 불려질 때, 모든 아이템이 pivot보다 크기 때문에 왼쪽 list로는 아무런 아이템도 이동하지 않는다.(하지만 여전히 partition은 T(n) = n+1의 every time-complexty를 가지고 실행된다.)  
 그리고 오른쪽 list는 pivot item만이 빠진, n-1의 길이를 가지는 list가 남게되고, 이것이 반복된다.
@@ -400,7 +398,7 @@ $$
 
 따라서 average-case의 경우, $$\theta(n \lg n)$$의 준수한 time-complexity를 가지는 정렬 알고리즘임을 알 수 있다.
 
-partition, pivot, input 등을 포함한 보다 자세한 QuickSort에 대한 내용과 다른 Sorting Algorithm에 대해서는 다른장에서 다시 다루도록 한다.
+partition, pivot, input 등과 관련한 보다 자세한 QuickSort에 대한 내용과 다른 Sorting Algorithm에 대해서는 다른장에서 다시 다루도록 한다.
 
 ## When Not to Use divide-and-conquer
 
@@ -409,7 +407,7 @@ divide-and-conquer의 사용을 피해야하는 경우가 있다.
 1. 사이즈 $$n$$의 instance가 둘 이상의 instance로 divide되고  
     나누어진 instance들 각각이 거의 $$n$$만큼 큰 사이즈를 가지는 경우
 
-   > ex) recursion으로 구현한 피보나치 수열 fib(K) = fib(k-2) + fib(k-1)
+   ###### > ex) recursion으로 구현한 피보나치 수열 fib(K) = fib(k-2) + fib(k-1)
 
    이 경우 exponential time-complexity를 가진다.
 
@@ -418,7 +416,7 @@ divide-and-conquer의 사용을 피해야하는 경우가 있다.
 2. 사이즈 $$n$$의 instance가 거의 $$n$$개의 instance로 divide되고  
    나누어진 instance들 각각이 거의 $$n/c$$의 사이즈를 가지는 경우
 
-   > ex) T(n) = nT(n/c)
+   ###### > ex) T(n) = nT(n/c)
 
    이 경우 $$n^{\Theta(\lg n)}$$의 time-complexity를 가진다.
 

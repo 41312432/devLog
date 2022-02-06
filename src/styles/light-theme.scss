@@ -92,7 +92,9 @@ body.light {
   }
 
   summary {
+    display: inline;
     font-size: 1.25em;
-    color: #0a9696;
+    cursor: pointer;
+    outline: none;
   }
 }

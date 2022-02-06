@@ -8,26 +8,26 @@ draft: false
 
 > _Efficiency, Analysis, and Order_
 
-_학교에서 수강한 '알고리즘' 강의와 책 ⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟을 중심으로 알고리즘에 대해 정리하고자 한 글입니다._
+_학교에서 수강한 '알고리즘' 강의와 책 ⌜Foundation of Alogorithm ⌟을 중심으로 알고리즘에 대해 정리하고자 한 글입니다._
 
 <!-- thumbnail -->
 
 # 서론
 
-2019년 가을학기에 수강한 아주대학교 위규범 교수님의 알고리즘(SCE-231) 강의와 책 [⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟](http://www.yes24.com/Product/Goods/11999564) 을 중심으로 컴퓨터과학의 중요 분야 중 하나인 `알고리즘`에 관해 정리하고자 한다.
+2019년 가을학기에 수강한 아주대학교 위규범 교수님의 알고리즘(SCE-231) 강의와 책 ⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟ 을 중심으로 컴퓨터과학의 중요 분야 중 하나인 `알고리즘`에 관해 정리하고자 한다.
 
 <br>
 
 - 책 [⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟](http://www.yes24.com/Product/Goods/11999564) 을 중심으로 소개한다.
-- 해당 강의와 책의 내용을 제외하고도 모든 관련 내용을 폴랫폼에 구애받지 않고 참조하여 정리할 수 있다. 특히 책 [⌜파이썬 알고리즘 인터뷰 - 박상길⌟](http://www.yes24.com/Product/Goods/91084402) 을 상당 부분 참고한다.
+- 해당 강의와 책의 내용을 제외하고도 모든 관련 내용을 폴랫폼에 구애받지 않고 참조하여 정리한다.  
+  특히 책 [⌜파이썬 알고리즘 인터뷰 - 박상길⌟](http://www.yes24.com/Product/Goods/91084402) 을 상당 부분 참고한다.
 - 주제의 흐름이나 순서는 해당 책을 기본으로 한다. 단, 각 챕터별 세부 내용은 달라질 수 있다.
 - 단어나 설명은 해당 책의 표현(원어)을 기준으로 한다. 단, 널리 알려진 표현은 한글을 비롯한 다른 표현으로도 대체될 수 있다.
-- 본 글은 문제 풀이(Problem Solving) 에 국한되어 설명하기보다는, 본인이 수강한 강의와 책을 바탕으로 학문으로써의 알고리즘에 대해 소개하고 정리하고자 한다.
 - 해당 책에서는 C++과 JAVA를 기반으로 하는 Pseudocode를 제시하여 설명하는데, 이 글에서는 Python 기반, 또는 자연어 기반의 Pseudocode 또는 구체적인 Python Code 를 제시한다.
 
 <br>
 
-<details>
+<details open>
    <summary>RoadMap</summary>
 
 1. `Algorithms; Efficiency, Analysis, and Order`
@@ -48,9 +48,8 @@ _학교에서 수강한 '알고리즘' 강의와 책 ⌜Foundation of Alogorithm
 
 # Ch1. Efficiency, Analysis, Order
 
-> 알고리즘이란
-
-본 장에서는 알고리즘의 기본에 관하여 설명한다. 알고리즘이 무엇인지, 알고리즘의 효율성에 관하여, 알고리즘을 분석하는 법, 복잡도 등에 관하여 소개한다.
+본 장에서는 알고리즘의 기본에 관해 정리한다.  
+알고리즘이 무엇인지, 알고리즘의 효율성에 관하여, 알고리즘을 분석하는 법, 복잡도 등에 관하여 소개한다.
 
 <br>
 
@@ -58,10 +57,14 @@ _학교에서 수강한 '알고리즘' 강의와 책 ⌜Foundation of Alogorithm
 
 > _...Applying a technique to a problem results in a step-by-step procedure for solving the probelm. This step-by-step procedure is called an `algorithm` for the problem..._
 
-Program은 컴퓨터에 의해 이해될 수 있는 개별적인 module (ex, Sorting을 처리하는 module 등)</span>으로 구성된다. 이 text에서 우리는 전체적인 프로그램의 보다는, 각 module이 특정한 task를 처리하는 design에 대해 집중한다.
+Program은 컴퓨터에 의해 이해될 수 있는 개별적인 module 으로 구성된다.
+
+> ex) Sorting만을 처리하는 module, Searching만을 수행하는 module
+
+본 글에서는 전체적인 프로그램의 보다는, 각 module이 특정한 task를 처리하는 design에 대해 집중한다.
 
 - 이때, 그 특정한 task를 **Problem**이라고 한다.
-- 각 **Problem**은 문제에서 특정 값으로 정의되지 않은 variable를 포함할 수 있다. 이 var들을 **Parameters**라고 한다.
+- 각 **Problem**은 문제에서 특정 값으로 정의되지 않은 variable를 포함할 수 있다. 이 variable들을 **Parameters**라고 한다.
 - **Paramaeter**로 전달되는 각각의 특정 값을 **Instance**라고 한다.
 - 각 **Instant**에 대해 **Problem**에서 얻는 값을 **Solution**이라고 한다.
 
@@ -94,7 +97,7 @@ def sequential_search(s: list, x: int):
     return 0
 ```
 
-> _순차 검색(sequential search), 또는 선형 검색(linear search)은 리스트에서 찾고자 하는 값을 맨 앞에서부터 끝까지 차례대로 탐색하는 알고리즘이다. - [출처](https://ko.wikipedia.org/wiki/순차*검색*알고리즘)_
+_순차 검색(sequential search), 또는 선형 검색(linear search)은 리스트에서 찾고자 하는 값을 맨 앞에서부터 끝까지 차례대로 탐색하는 알고리즘이다. - [출처](https://ko.wikipedia.org/wiki/순차*검색*알고리즘)_
 
 <br>
 
@@ -117,9 +120,13 @@ def binary_search(s: list, x: int):
             low = mid +1
 ```
 
-> _이진 검색(binary search)은 오름차순으로 정렬된 리스트에서 특정한 값을 찾는 알고리즘이다. 리스트에서 중간값과 대소를 비교하여 그 중간값을 다시 최대나 최솟값으로 하는 리스트에서 해당 과정을 반복한다._
+_이진 검색(binary search)은 오름차순으로 정렬된 리스트에서 특정한 값을 찾는 알고리즘이다.  
+ 리스트에서 중간값과 대소를 비교하여 그 중간값을 다시 최대나 최솟값으로 하는 리스트에서 해당 과정을 반복한다._
 
 <br>
+<br>
+
+---
 
 리스트 S의 길이를 32라고 가정하고 찾고자 하는 $$x$$가 리스트에 포함되어 있지 않은 경우(_Worst Case_)를 생각하자.
 
@@ -138,7 +145,7 @@ binary search에서는 각 반복마다 검색하는 리스트의 크기가 절�
 
 <br>
 
-다음은 리스트의 사이즈별로 최악의 경우 (_when x is larger than all items in an array_)각 알고리즘마다 몇번의 비교가 수행되는지를 나타낸 표이다.
+다음은 리스트의 사이즈별로 최악의 경우 (_찾고자하는 값이 리스트 S의 모든 값보다 클 때_)각 알고리즘마다 몇번의 비교가 수행되는지를 나타낸 표이다.
 
 |    Array Size | Sequential Search | Binary Search |
 | ------------: | ----------------: | ------------: |
@@ -154,7 +161,7 @@ $$O(n)$$의 Time Complexity를 가지는 Sequential Search와 $$O(\log_2 n)$$의
 <br>
 <br>
 
-다음은 피보나치 수를 구하는 두 가지 방식의 알고리즘의 수행 시간을 나타낸 표이다. 피보나치 수 하나를 계산하는 데 걸리는 시간은 $$1ns (= 10^{-9}s)$$라고 가정한다.
+다음은 피보나치 수를 구하는 두 가지 방식의 알고리즘의 수행 시간을 나타낸 표이다. 피보나치 수 하나를 계산하는 데 걸리는 시간은 $$1 ns (= 10^{-9}s)$$라고 가정한다.
 
 <br>
 
@@ -189,8 +196,6 @@ Recursion으로 구현한 피보나치 수를 구하는 알고리즘과 같이 e
 
 따라서 우리는  
 **input size에 따른 알고리즘의 Basic Operation 연산 횟수**를 알고리즘의 efficiency를 측정하는 척도로 사용한다.
-
-> _Basic Operation : Comparison, Assignment, Loop, ..._
 
 ### input vs input size
 
@@ -232,10 +237,10 @@ Recursion으로 구현한 피보나치 수를 구하는 알고리즘과 같이 e
 
 `time complexity analysis`는 각 **input** 마다 얼마나 많은 **basic operation**이 수행되는지를 말한다.
 
+<br>
+
 - $$T(n)$$ : `Every-Case` time complexity  
   \-Basic Operation의 실행 횟수가 **input에 관계없이 input size에만 영향**을 받는 경우의 time complexity.
-
-<br>
 
 <br>
 
@@ -297,7 +302,7 @@ $$f(n)$$의 최고차항이 $$g(n)$$의 최고차항보다 낮다면, 즉 order�
 |  100  |      1,000 |                1,200 |
 | 1,000 |    100,000 |              101,100 |
 
-> 결과적으로 입력값이 커짐에 따라 결괏값의 차이가 결괏값의 전체 크기에 비해 줄어드는 것을 볼 수 있다.
+결과적으로 입력값이 커짐에 따라 결괏값의 차이가 결괏값의 전체 크기에 비해 줄어드는 것을 볼 수 있다.
 
 <br>
 
@@ -613,7 +618,3 @@ $$
 $$
 
 <br>
-
-|                                                    |
-| :------------------------------------------------: |
-| $$ \omega(g(n)) = \Omega(g(n)) - \Theta((g(n))) $$ |
