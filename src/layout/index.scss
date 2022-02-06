@@ -10,6 +10,12 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.table-of-contents {
+  h3 {
+    padding: 0;
+  }
+}
+
 h1 {
   padding-top: 60px;
   margin-top: 1em;
