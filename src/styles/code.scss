@@ -52,6 +52,9 @@ code-line {
 }
 blockquote {
   color: $blockquote-text-color;
+  font-size: 0.8em;
+  border-left: none;
+  padding: 0;
 }
 
 code[class*='language-'],
