@@ -1,5 +1,5 @@
 ---
-title: '[Algorithm] Foundation of Algorithms Ch1.'
+title: 'Foundation of Algorithms Ch1.'
 date: 2021-12-14 10:12:31
 category: 'algorithm'
 thumbnail: { thumbnailSrc }
@@ -8,7 +8,7 @@ draft: false
 
 > _Efficiency, Analysis, and Order_
 
-_학교에서 수강한 '알고리즘' 강의와 책 ⌜Foundation of Alogorithm ⌟을 중심으로 알고리즘에 대해 정리하고자 한 글입니다._
+_아주대학교의 '알고리즘' 강의와 책 ⌜Foundation of Algorithms⌟을 바탕으로 알고리즘에 대해 정리하고자 한 글입니다._
 
 <!-- thumbnail -->
 

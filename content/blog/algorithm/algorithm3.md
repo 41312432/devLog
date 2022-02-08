@@ -1,5 +1,5 @@
 ---
-title: '[Algorithm] Foundation of Algorithms Ch3.'
+title: 'Foundation of Algorithms Ch3.'
 date: 2022-01-25 20:30:31
 category: 'algorithm'
 thumbnail: { thumbnailSrc }
@@ -8,7 +8,7 @@ draft: false
 
 > _Dynamic Programming_
 
-_⌜Foundation of Algorithm - Rechard E. Neapolitan⌟의 3장 동적 계획법 알고리즘에 관해 정리하고자 한 글입니다._
+_⌜Foundation of Algorithms의 3장 Dynamic Programming에 관해 정리하고자 한 글입니다._
 
 <!-- thumbnail -->
 
@@ -491,7 +491,7 @@ $$v_1$$에서 $$v_4$$로의 최장 경로는 [$$v1, v3, v2, v4$$]이다.
 
 ## LCS, LIS
 
-## More...
+## more...
 
 0-1 Knapsack Problem  
 Bellman-Ford Algorithm  

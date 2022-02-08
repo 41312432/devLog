@@ -1,5 +1,5 @@
 ---
-title: '[Algorithm] Foundation of Algorithms Ch2.'
+title: 'Foundation of Algorithms Ch2.'
 date: 2021-12-27 20:40:31
 category: 'algorithm'
 thumbnail: { thumbnailSrc }
@@ -8,7 +8,7 @@ draft: false
 
 > _Divide-and-Conquer_
 
-_⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟의 2장 분할정복 알고리즘에 관해 정리하고자 한 글 입니다_
+_⌜Foundation of Algorithms⌟의 2장 Divide-and-Conquer 알고리즘에 관해 정리하고자 한 글입니다._
 
 <!-- thumbnail -->
 
@@ -423,6 +423,8 @@ divide-and-conquer의 사용을 피해야하는 경우가 있다.
    이 경우 $$n^{\Theta(\lg n)}$$의 time-complexity를 가진다.
 
 ## more...
+
+> 추가예정
 
 MergeSort  
 Strassen's Matrix Multiplication  
