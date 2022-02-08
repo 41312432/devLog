@@ -14,8 +14,8 @@ _⌜Foundation of Algorithms의 3장 Dynamic Programming에 관해 정리하고�
 
 <br>
 
-<details open>
-   <summary>RoadMap</summary>
+<details>
+   <summary>💡RoadMap</summary>
 
 1. Algorithms; Efficiency, Analysis, and Order
 2. Divide-and-Conquer
@@ -492,6 +492,8 @@ $$v_1$$에서 $$v_4$$로의 최장 경로는 [$$v1, v3, v2, v4$$]이다.
 ## LCS, LIS
 
 ## more...
+
+> 추가예정
 
 0-1 Knapsack Problem  
 Bellman-Ford Algorithm  

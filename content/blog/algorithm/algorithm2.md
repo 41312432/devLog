@@ -14,8 +14,8 @@ _⌜Foundation of Algorithms⌟의 2장 Divide-and-Conquer 알고리즘에 관�
 
 <br>
 
-<details open>
-   <summary>RoadMap</summary>
+<details>
+   <summary>💡RoadMap</summary>
 
 1. Algorithms; Efficiency, Analysis, and Order
 2. `Divide-and-Conquer`

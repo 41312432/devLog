@@ -27,8 +27,8 @@ _아주대학교의 '알고리즘' 강의와 책 ⌜Foundation of Algorithms⌟�
 
 <br>
 
-<details open>
-   <summary>RoadMap</summary>
+<details>
+   <summary>💡RoadMap</summary>
 
 1. `Algorithms; Efficiency, Analysis, and Order`
 2. Divide-and-Conquer
