@@ -127,4 +127,11 @@ body.dark {
     border: 1.5px solid $dark-link-color;
     border-radius: 0.6em;
   }
+
+  .thumbnail-container {
+    blockquote {
+      font-size: 1em;
+      color: #ff8c41;
+    }
+  }
 }
