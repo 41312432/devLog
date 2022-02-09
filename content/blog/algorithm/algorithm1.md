@@ -8,7 +8,7 @@ draft: false
 
 > _Efficiency, Analysis, and Order_
 
-_아주대학교의 '알고리즘' 강의와 책 ⌜Foundation of Algorithms⌟을 바탕으로 알고리즘에 대해 정리하고자 한 글입니다._
+_아주대학교의 '알고리즘' 강의와 책 ⌜Foundations of Algorithms⌟을 바탕으로 알고리즘에 대해 정리하고자 한 글입니다._
 
 <!-- thumbnail -->
 
@@ -18,7 +18,7 @@ _아주대학교의 '알고리즘' 강의와 책 ⌜Foundation of Algorithms⌟�
 
 <br>
 
-- 책 [⌜Foundation of Alogorithm - Rechard E. Neapolitan⌟](http://www.yes24.com/Product/Goods/11999564) 을 중심으로 소개한다.
+- 책 [⌜Foundations of Alogorithm - Rechard E. Neapolitan⌟](http://www.yes24.com/Product/Goods/11999564) 을 중심으로 소개한다.
 - 해당 강의와 책의 내용을 제외하고도 모든 관련 내용을 폴랫폼에 구애받지 않고 참조하여 정리한다.  
   특히 책 [⌜파이썬 알고리즘 인터뷰 - 박상길⌟](http://www.yes24.com/Product/Goods/91084402) 을 상당 부분 참고한다.
 - 주제의 흐름이나 순서는 해당 책을 기본으로 한다. 단, 각 챕터별 세부 내용은 달라질 수 있다.
