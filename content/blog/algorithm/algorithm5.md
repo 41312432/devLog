@@ -51,7 +51,7 @@ CSP, Constarnt-statisfication problems(제약 충족 문제)는 특정한 집합
 
 `DFS, Depth-First Search(깊이 우선 탐색)`란 그래프(rooted graph를 말한다)가 주어졌을때, 그래프를 탐색하는 방법 중 하나이다.
 
-![>tree](picture/5-1.png)
+![>DFS](picture/5-1.png)
 
 Tree의 `preorder traversal(전위 순회)`가 바로 DFS이다.  
 즉,
