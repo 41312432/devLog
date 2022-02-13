@@ -17,11 +17,11 @@ _⌜Foundations of Algorithms의 6장 Branch-and-Bound에 관해 정리하고자
 <details>
    <summary>💡RoadMap</summary>
 
-1. Algorithms; Efficiency, Analysis, and Order
-2. Divide-and-Conquer
-3. Dynamic Programming
-4. Greedy
-5. Backtracking
+1. [Algorithms; Efficiency, Analysis, and Order](https://41312432.netlify.app/algorithm/algorithm1/)
+2. [Divide-and-Conquer](https://41312432.netlify.app/algorithm/algorithm2/)
+3. [Dynamic Programming](https://41312432.netlify.app/algorithm/algorithm3/)
+4. [Greedy](https://41312432.netlify.app/algorithm/algorithm4/)
+5. [Backtracking](https://41312432.netlify.app/algorithm/algorithm5/)
 6. `Branch-and-Bound`
 7. Sorting
 8. Searching
@@ -37,7 +37,7 @@ _⌜Foundations of Algorithms의 6장 Branch-and-Bound에 관해 정리하고자
 
 본 장에서는 Branch-and-Bound(분기한정)에 대해 소개한다.
 
-특히, 알고리즘 방법론 종류에 대한 마지막 소개글이므로, Knapsack problem을 바탕으로로 그 전 방법들에 대한 비교와 정리를 기술한다.
+특히, 알고리즘 방법론 종류에 대한 마지막 챕터이므로, Knapsack problem을 통해 그 전 방법들에 대해 비교하고 정리한다.
 
 ## Branch-and-Bound
 
@@ -52,23 +52,25 @@ Backtracking의 경우처럼 state space tree를 생성해서 문재를 해결�
 
 는 것이다.
 
-Branch-and-Bound 알고리즘은 노드가 promising한지 여부를 결정하기 위해서 그 노드에서 **숫자(Bound)를 계산**한다.  
-이 Bound는 그 노드를 넘어 확장(expand)함으로써 얻을 수 있는 solution의 값의 한계이다.
+Branch-and-Bound 알고리즘은 노드가 promising한지 여부를 결정하기 위해서 그 노드에서 `숫자(Bound)`를 계산한다.  
+이 Bound는 **그 노드를 넘어 확장(expand)함으로써 얻을 수 있는 solution의 값의 한계**이다.
 
 만약 그 한계값이 지금까지 구한 다른 노드에서의 solution 한계들의 최적의 값 보다 더 낫지 않으면, 그 노드는 promising하지 않다. 그 반대의 경우라면, 그 노드는 promising하다.
 
 <br>
 
-Branch-and-Bound 알고리즘은 Backtracking의 경우처럼 최악의 경우 exponential time-complexity가(또는 더 나쁜) 소요되지만, 많은 큰 instance에 대해 효율적으로 작동한다.
+Branch-and-Bound 알고리즘은 Backtracking의 경우처럼 최악의 경우 exponential time complexity가(또는 더 나쁜) 소요되지만, 많은 큰 instance에 대해 효율적으로 작동한다.
 
 <br>
 
-이런 방식으로 미리 정해진 traversal 종류에 따라 노드를 **bound를 통해 체계적으로 순회**함으로써 최적의 solution에 도달하는 경우가 많다. 예를 들어 Backtracking에서 살펴보았던 DFS에 bound를 통한 pruning 과정을 더한다면, 그것을 branch-and-bound 알고리즘이라고 할 수 있을 것이다.  
+이런 방식으로 미리 정해진 traversal 종류에 따라 노드를 **bound를 통해 체계적으로 순회**함으로써 최적의 solution에 도달하는 경우가 많다.  
+예를 들어 Backtracking에서 살펴보았던 DFS에 bound를 통한 pruning 과정을 더한다면, 그것을 branch-and-bound 알고리즘이라고 할 수 있을 것이다.  
 이러한 접근 방식을 `Best-First Search with Branch-and-Bound Pruning` 이라고 한다.
 
 ## 0-1 Knapsack problem
 
-0-1 Knapsack 문제는 $$n$$개의 물건들을 한정된 용량($$W$$)의 배낭에 골라서 넣었을 떄, 용량을 넘지 않으면서 최대의 값어치를 담을 수 있는 물건의 조합을 찾는 문제이다.  
+0-1 Knapsack 문제는  
+$$n$$개의 물건들을 한정된 용량($$W$$)의 배낭에 골라서 넣었을 떄, 용량을 넘지 않으면서 최대의 값어치를 담을 수 있는 물건의 조합을 찾는 문제이다.  
 즉,
 
 $$W$$ = 배낭에 담을 수 있는 최대 무게
@@ -80,9 +82,15 @@ $$p_i$$ = i번째 item의 가치
 
 라고 할 때 $$w$$들의 합이 $$W$$를 넘지 않으면서 $$p$$의 합이 최대가 되게 하는 아이템들의 조합을 구하는 문제이다.
 
+<br>
+
+---
+
+<br>
+
 이 문제를 앞서 배운 Greedy, DP, Backtracking, Branch-and-Bound 알고리즘을 통해 구현하면서 비교해보도록 한다.
 
-특히, 이 장의 Branch-and-Bound 알고리즘으로 구현할 때는 BFS with Branch-and-Bound Pruning 방법으로 구현한다.
+특히, 이 장의 Branch-and-Bound 알고리즘으로 구현할 때는 **BFS with Branch-and-Bound Pruning** 방법으로 구현한다.
 
 ### Greedy vs DP
 
@@ -93,16 +101,16 @@ Greedy 알고리즘과 DP 알고리즘 모두 최적화 문제를 해결하기 �
 
 > ex) Shortest Path Problem. Floyd Algorithm(DP): $$\Theta(n^3)$$ Dijkstra Algorithm(Greedy): $$\Theta(n^2)$$
 
-그러나 Greedy 알고리즘의 경우 그 알고리즘이 항상 최적의 solution을 제공하는지 증명해야 하는 문제가 남아있다.
+그러나 Greedy 알고리즘의 경우 그 알고리즘이 **항상 최적의 solution을 제공하는지** 증명해야 하는 문제가 남아있다.
 
 Greedy 알고리즘이 항상 최적의 해를 제공하는것은 아니며, 심지어는 그런 경우에도 그것을 증명하는것이 매우 어려울 수 있다.
-DP 알고리즘의 경우, 최적의 원칙(principle of optimality)이 적용되는지만 보면 된다.
+DP 알고리즘의 경우, **최적의 원칙(principle of optimality)**이 적용되는지만 보면 된다.
 
 위 Knapsack Problem을 통해 두 알고리즘을 비교해보자.
 
 #### Brute Force
 
-가장 먼저 Brute Force로 해결하려면 얼마만큼의 time-complexity가 나오는지 알아보자.
+가장 먼저 Brute Force로 해결하려면 얼마만큼의 time complexity가 나오는지 알아보자.
 
 모든 물건의 조합을 계산해서, 그 조합이 배낭 안에 들어가는지를 계산하고, 들어가는 조합 중 가치가 가장 높은 조합을 구하면 된다.
 
@@ -114,7 +122,7 @@ $$
 \end{aligned}
 $$
 
-exponential time-complexity가 소요된다.
+exponential time complexity가 소요된다.
 
 #### Greedy
 
@@ -135,10 +143,10 @@ Greedy 알고리즘으로 문제를 해결해보자.
 
 <br>
 
-이는 greedy 알고리즘의 최적의 해 보장 조건을 만족시키지 못했다.
+이는 greedy 알고리즘의 **최적의 해 보장 조건**을 만족시키지 못했다.
 
-매 물건의 선택이 무게를 차지하므로 뒷 물건의 선택 과정에 영향을 끼치므로 greedy choice property 조건을 만족시키지 못하고,  
-전체 최적 solution은 위와 같은 방법으로 구해지는 부분 문제의 최적 solution과 다를 수 있으므로 optimal structure 조건도 만족시키지 못한다.
+매 물건의 선택이 무게를 차지하므로 뒷 물건의 선택 과정에 영향을 끼치므로 **greedy choice property** 조건을 만족시키지 못하고,  
+전체 최적 solution은 위와 같은 방법으로 구해지는 부분 문제의 최적 solution과 다를 수 있으므로 **optimal structure** 조건도 만족시키지 못한다.
 
 ##### profit per weight first
 
@@ -217,7 +225,7 @@ T(n) = nW \in \Theta(nW)
 $$
 
 이는 알고리즘이 $$W$$의 값에 절대적으로 의존함을 보여준다.  
-$$n$$과 $$W$$에는 아무런 관계도 없다. 즉, 예를들어 $$W$$가 $$n$$!에 가까워질만큼 클 수도 있는데 그렇다면 이 알고리즘은 $$\Theta(n\times n!)$$의 매우 비효율적인 time-complexity를 가지는 것이다.
+$$n$$과 $$W$$에는 아무런 관계도 없다. 즉, 예를들어 $$W$$가 $$n$$!에 가까워질만큼 클 수도 있는데 그렇다면 이 알고리즘은 $$\Theta(n\times n!)$$의 매우 비효율적인 time complexity를 가지는 것이다.
 
 <br>
 
@@ -225,7 +233,7 @@ DP에서 최적의 원칙을 만족한다는 것을 보였기 때문에, greedy�
 
 ### Backtracking
 
-Backtracking으로 이 문제를 풀기 위해, state space tree를 만들어보자.
+Backtracking으로 이 문제를 풀기 위해, **state space tree**를 만들어보자.
 
 먼저 아이템을 무게대비 가치가 높은 순으로($$p_i / w_i$$ 내림차순) 정렬하고, 트리의 root부터 각 레벨은 고려할 수 있는 아이템들을 (즉, 레벨 1은 첫번째 아이템을, 레벨 2 에서는 첫번째와 두번째 아이템, 레벨 i에서는 첫번째부터 i번째 아이템들) 나타낸다.  
 각 노드의 자식 노드들은, 그 자식 노드들의 아이템을 취하는경우와 안취하는 경우로 나누어진다.  
@@ -236,19 +244,22 @@ Backtracking으로 이 문제를 풀기 위해, state space tree를 만들어보
 <br>
 
 이 문제는 다른 Backtracking 문제들과는 다르게 최적화 문제를 다룬다.  
-따라서 최석이라고 생각했던 노드를 선택했다고 해서 그 노드를 확장하는 경로가 꼭 최적의 solution이라고 할 수는 없다.  
-따라서 순회가 끝나기 전에는 최적의 solution이 무엇인지 알 수 없으므로 검색하는 과정동안 그때까지 얻은 최적의 solution을 항상 기억해 놓아야 한다.
+따라서 최적이라고 생각했던 노드를 선택했다고 해서 그 노드를 확장하는 경로가 꼭 최적의 solution이라고 할 수는 없다.  
+따라서 순회가 끝나기 전에는 최적의 solution이 무엇인지 알 수 없으므로 **검색하는 과정동안 그때까지 얻은 최적의 solution을 항상 기억해 놓아야 한다.**
 
 <br>
 
-이 state space tree에서 promising한 노드는, 그 노드를 선택했을 때 $$w_i$$를 더한 weight이 $$W$$보다 낮은 노드이다.
+이 state space tree에서 promising한 노드는, 그 노드를 선택했을 때 $$w_i$$를 더한 weight이 $$W$$보다 낮은 노드이다.  
 즉 $$ \text{weight} \geq W$$이면 non-promising이다.
 
 마지막 노드를 제외하고, 이는 심지어 총 무게가 $$W$$와 같을때에도 non-promising인데,  
 이는 최적화 문제에서 promising은 자식 노드로 확장(expand)될 수 있음을 의미하기 때문이다.
 
-하지만 이것만을 가지고는 promising한 노드로 제한하기에는 부족하다. 이는 Brute Force의 경우처럼 사실 무게가 들어가는대로 거의 모든 경우의 수를 전부 조사해야한다.  
+하지만 이것만을 가지고는 promising한 노드로 제한하기에는 부족하다. 이는 Brute Force의 경우처럼 사실 무게가 들어가는대로 거의 모든 경우의 수를 전부 조사해야한다.
+
 따라서 추가적인 변수를 정의해 promising을 더 엄밀히 제한한다.
+
+<br>
 
 - totweight = 지금까지의 무게 합 + 지금 노드를 넘어서 앞으로 넣을 수 있는 무게의 합  
   이는 이 노드를 넘어서 가질 수 있는 무게의 합을 말한다.
@@ -271,7 +282,7 @@ $$
 upper bound를 살펴보자. 이 노드를 선택했을 떄, 이 노드를 확장해서(expand)얻은 경로(solution)에는 $$k$$레벨에서 $$W$$를 초과하므로 $$k-1$$까지의 합을 구하는것이다. 그리고 나머지 공간을 위한 무게(즉, $$W - totweight$$)만큼의 이익을 쪼개서 넣은것이다.
 
 그리고 maxprofit이라는 변수를 지금까지 찾은 경로(solution)의 이익 중 최고의 값 이라고 정의하자.  
-그럼 노드를 확장했을 때 bound값이 maxprofit 보다 작거나 같다면, promising하지 않다.
+그럼 **노드를 확장했을 때 bound값이 maxprofit 보다 작거나 같다면, promising하지 않다.**
 
 $$
 \begin{aligned}
@@ -339,7 +350,7 @@ $$
 \end{aligned}
 $$
 
-이다. 최악의 경우 똑같이 brute force의 경우와 같이 exponential time-complexity를 가지지만 pruning을 통해 훨씬 적게 탐색하기 떄문에 더 효율적일 수 있다.
+이다. 최악의 경우 똑같이 brute force의 경우와 같이 exponential time complexity를 가지지만 pruning을 통해 훨씬 적게 탐색하기 떄문에 **더 효율적일 수** 있다.
 
 DP로 구현한 $$ \Theta (\text{min} (2^n, nW)$$와 비교할 떄 DP의 $$nW$$가 더 효율적으로 보일 수도 있지만, 두 알고리즘의 상대적인 효율을 이론적으로 분석하기는 정말 어렵다.
 
@@ -402,30 +413,35 @@ Backtracking으로 구현한 knapsack problem with DFS와 똑같지만 탐색 �
 
 위의 그림과 같이 state space tree를 BFS로 방문하는 것이다.
 
-탐색하는 순서가 바뀌었으므로 조사하는 노드의 수 등에 다소 차이가 있을 수는 있다. 예를 들면 위 그림의 노드(1, 2)는 DFS라면 non-promising임을 알고 pruning 했을것이다. 하지만 BFS에서는 그 밑으로 확장한다.
+탐색하는 순서가 바뀌었으므로 조사하는 노드의 수 등에 다소 차이가 있을 수는 있다.  
+예를 들면 위 그림의 노드(1, 2)는 DFS라면 non-promising임을 알고 pruning 했을것이다. 하지만 BFS에서는 그 밑으로 확장한다.
 
 노드가 weight이 $$W$$를 초과해서 non-promising하게 된다면, bound를 0으로 초기화한다. 그래서 그 노드가 확장되었을때 bound가 maxprofit보다 크지 않게 될 것이다.
 
-BFS로 구현한 알고리즘은 어떤 노드의 자식 노드를 방문해야 할지를 그 노드를 방문할 때 결정한다. 예를 들어, 노드 (2,3)을 방문했을 때는 maxprofit이 70이였으므로 그 노드는 promising했다. 하지만 DFS와는 다르게, BFS에서는 maxprofit이 실제로 그 자식노드를 방문했을 때 변할 수 있다. 따라서 (2,3)노드의 자식 노드를 방문할 때는 maxprofit이 90이기 때문에, 그 자식노드들은 non-promising이다. 이는 시간을 낭비했다고 볼 수 있는데, 이는 best-first search에서 해결한다.
+BFS로 구현한 알고리즘은 어떤 노드의 자식 노드를 방문해야 할지를 그 노드를 방문할 때 결정한다.  
+예를 들어, 노드 (2,3)을 방문했을 때는 maxprofit이 70이였으므로 그 노드는 promising했다. 하지만 DFS와는 다르게, BFS에서는 maxprofit이 실제로 그 자식노드를 방문했을 때 변할 수 있다. 따라서 (2,3)노드의 자식 노드를 방문할 때는 maxprofit이 90이기 때문에, 그 자식노드들은 non-promising이다. 이는 시간을 낭비했다고 볼 수 있는데, 이는 **best-first search**에서 해결한다.
 
 <br>
 
 BFS를 통한 방법 역시 DFS를 통한 방법과 마찬가지로 state space tree의 노드 수는 최악의 경우 $$\Theta(2^n)$$이다.  
-위의 노드(2, 3)의 예시처럼 순회 방법에 따라 더 비효율적이게 많은 노드를 탐색할 수도 있고, 경우에 따라 더 적은 노드를 탐색할 수 있다. 따라서 두 방법 중 어떤 알고리즘이 더 효율적인지는 문제마다 다르다. 또한, 이의 효율성을 분석하기는 이론적으로 어렵다.
-
----
+위의 노드(2, 3)의 예시처럼 순회 방법에 따라 더 비효율적이게 많은 노드를 탐색할 수도 있고, 경우에 따라 더 적은 노드를 탐색할 수 있다.  
+따라서 **두 방법 중 어떤 알고리즘이 더 효율적인지는 문제마다 다르다.** 또한, 이의 효율성을 분석하기는 이론적으로 어렵다.
 
 #### Best-First Search
 
-Best-First Search에서는 bound 값을 단지 노드가 promising한지 아닌지 판단하는것 이상으로 사용해 DFS나 BFS의 경우보다 알고리즘의 효율성을 향상시킨다.
+Best-First Search에서는 **bound 값을 단지 노드가 promising한지 아닌지 판단하는것 이상으로 사용**해 DFS나 BFS의 경우보다 알고리즘의 효율성을 향상시킨다.
 
-Best-First Search는 BFS처럼 어떤 노드의 자식 노드를 모두 탐색한 후, 그 자식 중 확장되지 않았으며(unexpanded) promising한 노드 모두를 살펴보고 그 중 bound가 가장 높은 노드를 우선으로 확장한다. 그러면 그 노드의 자식 노드들을 확장하면서 maxprofit값이 갱신되기 떄문에 다시 그 전 노드들 중 다음 bound를 가진 노드 순으로 확장할텐데 갱신된 maxprofit 보다 bound가 낮으면 non-promising한것이기 때문에 확장하지 않는다.
+Best-First Search는 BFS처럼 어떤 노드의 자식 노드를 모두 탐색한 후, 그 자식 중 확장되지 않았으며(unexpanded) promising한 노드 모두를 살펴보고 그 중 bound가 가장 높은 노드를 우선으로 확장한다.  
+그러면 그 노드의 자식 노드들을 확장하면서 maxprofit값이 갱신되기 떄문에 다시 그 전 노드들 중 다음 bound를 가진 노드 순으로 확장할텐데 갱신된 maxprofit 보다 bound가 낮으면 non-promising한것이기 때문에 확장하지 않는다.
 
 이렇게 하면 대부분의 경우 미리 결정된 순서 (DFS, BFS 등)로 탐색을 진행하는 것 보다 더 빨리 최적의 해를 찾을 수 있다.
 
 ![>best first search state space tree](picture/best-first.png)
 
 위 그림을 토대로 best first search를 진행해보자.
+
+<details>
+   <summary>best-first search</summary>
 
 1. root를 방문한다.
    [profit = 0], [weight = 0], [bound = 115(= 40 + 30 + (16-7) x (50/10))]
@@ -486,20 +502,25 @@ Best-First Search는 BFS처럼 어떤 노드의 자식 노드를 모두 탐색�
 17. state space tree에서 leaf 노드들은 bound값이 maxprofit을 넘을 수 없으므로 자동으로 non-promising이다.
     따라서 promising한 노드 중 확장되지 않은 노드가 없으므로 탐색이 종료된다.
 
+   </details>
+
+<br>
+
 위 예제에서 12의 경우를 살펴보면, maxprofit이 갱신 될 때 bound가 그 값보다 작거나 같은 확장되지 않은 노드를 non-promising이라고 생각하기 때문에 경우의 수가 줄어듦을 알 수 있다.
 
 <br>
 
-위 예제를 살펴보면, 노드(2, 1)이 (2, 2)보다 좋아보였지만 (2, 2)가 최적 solution에 포함되는 노드이다. 즉 최고라고 여겨지는 노드에서 최적의 solution이 나온다는 보장이 없다(Greedy를 적용시킬 수 없다!)
+위 예제를 살펴보면, 노드(2, 1)이 (2, 2)보다 좋아보였지만 (2, 2)가 최적 solution에 포함되는 노드이다.  
+즉, 최고라고 여겨지는 노드에서 최적의 solution이 나온다는 보장이 없다(Greedy를 적용시킬 수 없다!)
 
 <br>
 
 위 알고리즘은 BFS와 매우 유사함을 알 수 있다.  
-하지만 이 경우 큐에 노드를 넣은 순이 아닌 최고의 bound 값을 가진 노드를 우선적으로 확장(방문)하기 때문에 priority queue를 사용한다.
+하지만 이 경우 큐에 노드를 넣은 순이 아닌 최고의 bound 값을 가진 노드를 우선적으로 확장(방문)하기 때문에 **priority queue**를 사용한다.
 
 <br>
 
-이러한 방법 역시 state space tree의 노드 수는 최악의 경우 $$\Theta(2^n)$$ exponential time-complexity가 걸릴 수 있다.
+이러한 방법 역시 state space tree의 노드 수는 최악의 경우 $$\Theta(2^n)$$ exponential time complexity가 걸릴 수 있다.
 
 하지만 같은 예제를 통해 살펴보았듯이 DFS나 BFS의 경우처럼 정해진 순서(predeterminated order)로 탐색하는거보다 best-first search처럼 methodically 하게 방문하는 알고리즘이 더 빠르게 탐색할 수 있다.  
 이는 state space tree가 커질경우 그 차이가 더 드러날 수 있다.

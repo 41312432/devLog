@@ -17,12 +17,12 @@ _⌜Foundations of Algorithms⌟의 2장 Divide-and-Conquer 알고리즘에 관�
 <details>
    <summary>💡RoadMap</summary>
 
-1. Algorithms; Efficiency, Analysis, and Order
+1. [Algorithms; Efficiency, Analysis, and Order](https://41312432.netlify.app/algorithm/algorithm1/)
 2. `Divide-and-Conquer`
-3. Dynamic Programming
-4. Greedy
-5. Backtracking
-6. Branch-and-Bound
+3. [Dynamic Programming](https://41312432.netlify.app/algorithm/algorithm3/)
+4. [Greedy](https://41312432.netlify.app/algorithm/algorithm4/)
+5. [Backtracking](https://41312432.netlify.app/algorithm/algorithm5/)
+6. [Branch-and-Bound](https://41312432.netlify.app/algorithm/algorithm6/)
 7. Sorting
 8. Searching
 9. NP
@@ -45,25 +45,25 @@ Divide-and-Conquer 알고리즘은 말 그대로 problem의 optimal solution을 
 
 <br>
 
-1. problem의 instance를 두개나 그 이상의 더 작은 instance들로 `나눈다`(**divide**)
+1. problem의 instance를 두개나 그 이상의 더 작은 instance들로 `나눈다(divide)`
    > 나누어진 instance들은 각각이 원래의 problem들의 instance이기 때문에, 나누어진 instance들로 얻을 수 있는 각각의 solution은 역시 원래의 problem의 solution을 구성한다.
 
-2) soultion을 구할 수 있을때 까지 instance를 나누어 각 instance들을 `해결한다`(**conquer**)
+2) solution 구할 수 있을때 까지 instance를 나누어 각 instance들을 `해결한다(conquer)`
 
-3. 필요하다면, 원래의 instance의 solution을 구하기 위해 작은 instance들의 solution들을 `합친다`(combine)
+3. 필요하다면, 원래의 instance의 solution을 구하기 위해 작은 instance들의 solution들을 `합친다(combine)`
 
 <br>
 
 이 과정을 PseudoCode로 표현하면 다음과 같다.
 
-```js
-function F(x):
-  if F(x) can be solved:
-    return sol(F(x))   //Conquer
+```py
+def f(x):
+  if f(x) can be solved:
+    return sol(f(x))   #Conquer
   else:
-    divide x into y1, y2  //Divide
-    F(y1), F(y2)
-    return sol(F(x)) using F(y1), F(y2) //Combine
+    divide x into y1, y2  #Divide
+    f(y1), f(y2)
+    return sol(f(x)) using f(y1), f(y2) #Combine
 ```
 
 <br>
@@ -103,7 +103,7 @@ Divide-and-Conquer 알고리즘은 `top-down` approach (하향식 접근법)이�
 2. key x가 선택한 sub list에 있는지 확인하여 `푼다`(**conquer**)  
    sub list가 solution을 얻기에 충분히 작지 않다면 이를 반복한다.
 
-3) soulltion을 `얻는다`(**obtain**)
+3) solution을 `얻는다`(**obtain**)
 
 <br>
 
@@ -113,17 +113,17 @@ def binary_search(s: list, x: int):#Recursive
       return False
     else:
       mid = (low+high)//2
-      if  x == S[mid]:  //conquer
+      if  x == S[mid]:  #conquer
         return mid
       elif x < S[mid]:
-        return binary_search(low, mid-1)  //divide
+        return binary_search(low, mid-1)  #divide
       else:
-        return binary_search(mid+1, low)  //divide
+        return binary_search(mid+1, low)  #divide
 ```
 
 ### recursive vs iterative
 
-Recursive 버전의 binary search는 [tail-recursion](https://en.wikipedia.org/wiki/Tail_call)(recursive call 이후 operation이 수행되지 않음)을 사용하기 떄문에, 1장에서 구현한 것 처럼 iterive하게 구현할 수 있다.
+위에서 구현한 recursive 버전의 binary search는 [tail-recursion](https://en.wikipedia.org/wiki/Tail_call)(recursive call 이후 operation이 수행되지 않음)을 사용하기 때문에, 1장에서 구현한 것 처럼 iterative하게 구현할 수 있다.
 
 이처럼 `tail-recursion`을 사용하는 알고리즘은 일반적인 divide-and-conquer 알고리즘보다 더 효율적으로 구현할 수 있다. 특히 간단하게 **loop**문으로 구현할 수 있다.
 
@@ -137,7 +137,7 @@ Iteration이 tail-recursion을 대체하는게 효율적인 또 다른 이유는
 
 대부분의 modern LISP 언어에서 tail-recursion은 iterative하게 컴파일 되기 때문에 iterative한 알고리즘을 tail-recursion으로 대체할 필요성이 없다.
 
-### decrease-and-conquer
+### Decrease-and-Conquer
 
 Recursive하게 구현한 binary search 알고리즘을 살펴보면, problem을 **오직 한개**의 하위 problem으로만 줄인다.  
 그리고 solution을 combine하지도 않는다. 원래 problem의 solution은 단지 하위 problem의 solution 일 뿐이다.
@@ -147,7 +147,7 @@ Recursive하게 구현한 binary search 알고리즘을 살펴보면, problem을
 왜냐하면 위 같이 tail-recursion을 사용하는, 심지어는 tail-recursion을 loop로 간단하게 구현할 수 있기 때문에, 광범위하고 모호한 정의하에서는 모든 recursion이나 loop를 사용하는 알고리즘이 divide-and-conquer 알고리즘으로 간주되어질 수 있기 때문이다.  
 [출처](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm#Divide_and_conquer)
 
-### efficiency
+### Analyze
 
 Recursion으로 구현한 Binary Search의 worst-case time compliexty를 살펴보자.  
 일단 $$n$$이 2의 제곱일때만을 살펴보자.
@@ -171,26 +171,31 @@ $$
 위 점화식에서 다음과같은 결과를 도출할 수 있다.
 
 $$
-  W(n) = \lg n + 1
+  W(n) = \lg n + 1 \in \Theta(\lg n)
 $$
 
-증명
+<details>
+   <summary>증명</summary>
 
 $$
-  \begin{aligned}
-    &W(1) = 1\\
-    &W(2) = W(1) + 1 = 2\\
-    &W(2^2) = W(2) + 1 = 3\\
-    &W(2^3) = W(2^2) + 1 = 4\\
-    &...\\
-    &W(2^k) = W(2^{k-1}) + 1 = k + 1 = \lg(2^k) + 1
-  \end{aligned}
+\begin{aligned}
+ &W(1) = 1\\
+ &W(2) = W(1) + 1 = 2\\
+ &W(2^2) = W(2) + 1 = 3\\
+ &W(2^3) = W(2^2) + 1 = 4\\
+ &...\\
+ &W(2^k) = W(2^{k-1}) + 1 = k + 1 = \lg(2^k) + 1
+\end{aligned}
 $$
+
+</details>
+
+<br>
 
 만약 $$n$$이 2의 제곱이 아니라면,
 
 $$
-  W(n) = \lfloor \lg n \rfloor + 1 \in \theta(\lg n)
+  W(n) = \lfloor \lg n \rfloor + 1 \in \Theta(\lg n)
 $$
 
 <br>
@@ -223,10 +228,11 @@ def quick_sort(s: list, low: int, high: int):#Recursive
       quicksort(s, pivot+1, high)
 ```
 
-### partition
+### Partition
 
-알고리즘에서도 살펴볼 수 있듯이, QuickSort는 **partitioning** routine에 기반하여 구현되는 알고리즘이다.  
-당연히 partition을 어떻게 구현하느냐에 따라(pivot을 어떻게 선택하는지를 포함해서) 알고리즘의 퍼포먼스가 달리지게 된다.  
+알고리즘에서도 살펴볼 수 있듯이, QuickSort는 **partitioning** routine에 기반하여 구현되는 알고리즘이다.
+
+당연히 partition을 어떻게 구현하느냐에 따라(pivot을 어떻게 선택하는지를 포함해서) 알고리즘의 능률(performance)이 달리지게 된다.  
 대표적으로 **Lomuto partition**, **Hoare partition**등이 있는데, 이에 대한 내용은 Sorting에 대해 다룰 때 더 자세히 알아보도록 한다.
 
 <br>
@@ -240,26 +246,26 @@ list S는 in-place partition(제자리 분할)되었고, 그 pivot index를 반�
 
 ```py
 def partition(s: list, low: int, high: int):#in-place sort
-    pivot = list[low]   //pivot
-    pivot_index = low   //partition 후 pivot을 위치시킬 index 기억
+    pivot = list[low]   #pivot
+    pivot_index = low   #partition 후 pivot을 위치시킬 index 기억
 
-    //pivot보다 작은 값을 pivot왼쪽으로 스왑하며 정렬
+    #pivot보다 작은 값을 pivot왼쪽으로 스왑하며 정렬
     for i in range(low+1, high+1):
       if s[i] < pivot:
         pivot_index += 1
         s[i], s[pivot_index] = s[pivot_index], s[i]
 
-    //pivot을 중간으로 위치
+    #pivot을 중간으로 위치
     s[low], s[pivot_point] = s[pivot_index], s[low]
 
     return pivot_index
 ```
 
-### efficiency
+### Analyze
 
-#### partition
+#### Partition
 
-먼저 partition 알고리즘의 time-complexity부터 분석해보자.
+먼저 partition 알고리즘의 time complexity부터 분석해보자.
 
 ```txt
 Basic Operation : pivot과 s[i] 의 비교
@@ -276,9 +282,9 @@ $$
 
 #### QuickSort
 
-다음은 QuickSort의 time-complexity 분석이다.
+다음은 QuickSort의 time complexity 분석이다.
 
-QuickSort는 every-case complexity가 존재하지 않기 때문에, Worst Case와 Average Case에 대해 살펴보자.
+QuickSort는 every-case time complexity가 존재하지 않기 때문에, Worst Case와 Average Case에 대해 살펴본다.
 
 ##### Worst Case
 
@@ -289,7 +295,7 @@ QuickSort에서의 worst-case는 특이하게도 list가 이미 정렬되어 있
 왜냐하면 partition이 top-level에서 불려질 때, 모든 아이템이 pivot보다 크기 때문에 왼쪽 list로는 아무런 아이템도 이동하지 않는다.(하지만 여전히 partition은 T(n) = n+1의 every time-complexty를 가지고 실행된다.)  
 그리고 오른쪽 list는 pivot item만이 빠진, n-1의 길이를 가지는 list가 남게되고, 이것이 반복된다.
 
-따라서 다음과 같은 time-complexity를 가진다.
+따라서 다음과 같은 time complexity를 가진다.
 
 ```txt
 Basic Operation : partition의 pivot과 s[i]의 비교
@@ -311,13 +317,14 @@ $$
   \end{aligned}
 $$
 
-위 점화식에서 다음과같은 결과를 도출할 수 있다
+위 점화식에서 다음과같은 결과를 도출할 수 있다.
 
 $$
   T(n) = \frac{n(n-1)}{2}
 $$
 
-증명
+<details>
+   <summary>증명</summary>
 
 $$
   \begin{aligned}
@@ -329,6 +336,10 @@ $$
     &= \frac{n(n-1)}{2}
   \end{aligned}
 $$
+
+</details>
+
+<br>
 
 귀납법을 활용해, $$W(n) \leq \frac{n(n-1)}{2}$$를 증명할 수 있다.
 
@@ -398,7 +409,7 @@ $$
   \end{aligned}
 $$
 
-따라서 average-case의 경우, $$\theta(n \lg n)$$의 준수한 time-complexity를 가지는 정렬 알고리즘임을 알 수 있다.
+따라서 average-case의 경우, $$\theta(n \lg n)$$의 준수한 time complexity를 가지는 정렬 알고리즘임을 알 수 있다.
 
 partition, pivot, input 등을 포함한 보다 자세한 QuickSort에 대한 내용과 다른 Sorting Algorithm에 대해서는 다른장에서 다시 다루도록 한다.
 
@@ -411,7 +422,7 @@ divide-and-conquer의 사용을 피해야하는 경우가 있다.
 
    > ex) recursion으로 구현한 피보나치 수열 fib(K) = fib(k-2) + fib(k-1)
 
-   이 경우 exponential time-complexity를 가진다.
+   이 경우 exponential time complexity를 가진다.
 
 <br>
 
@@ -420,7 +431,7 @@ divide-and-conquer의 사용을 피해야하는 경우가 있다.
 
    > ex) T(n) = nT(n/c)
 
-   이 경우 $$n^{\Theta(\lg n)}$$의 time-complexity를 가진다.
+   이 경우 $$n^{\Theta(\lg n)}$$의 time complexity를 가진다.
 
 ## more...
 

@@ -17,12 +17,12 @@ _⌜Foundations of Algorithms의 3장 Dynamic Programming에 관해 정리하고
 <details>
    <summary>💡RoadMap</summary>
 
-1. Algorithms; Efficiency, Analysis, and Order
-2. Divide-and-Conquer
+1. [Algorithms; Efficiency, Analysis, and Order](https://41312432.netlify.app/algorithm/algorithm1/)
+2. [Divide-and-Conquer](https://41312432.netlify.app/algorithm/algorithm2/)
 3. `Dynamic Programming`
-4. Greedy
-5. Backtracking
-6. Branch-and-Bound
+4. [Greedy](https://41312432.netlify.app/algorithm/algorithm4/)
+5. [Backtracking](https://41312432.netlify.app/algorithm/algorithm5/)
+6. [Branch-and-Bound](https://41312432.netlify.app/algorithm/algorithm6/)
 7. Sorting
 8. Searching
 9. NP
@@ -66,7 +66,8 @@ Dynamic programming의 이름은 왜 dynamic programming 일까?
 > _나는 RAND 코퍼레이션에서 1950년의 가을을 보냈다. 여기에서 내게 주어진 첫 과제는 다단계(multistage) 의사 결정 프로세스에 대해 적절한 용어를 명명하는 것이었다. '동적 계획법'이라는 이름이 어디에서 왔는지 궁금하지 않은가? 1950년대는 내가 수학에 대해 연구하기에는 좋지 못한 시기였다. 우리는 그 때 워싱턴에서 윌슨이라는 사람과 함께 일하고 있었다. 윌슨은 연구라는 것에 대해 굉장히 병적인 공포를 가지고 있었다. 사람들이 그 앞에서 연구에 대해 이야기를 꺼내면 그는 완전히 미치다시피 했다. 그러나 불행히도 RAND는 공군 소속의 회사였고, 윌슨은 그 공군의 간부인 국방 위원장이었다. 그래서 내가 RAND 안에 있었을 때 윌슨을 비롯한 공군들이 내가 수학에 대해 연구하는 것을 보이지 않게 막는다는 것을 알 수 있었다. 처음 올 때는 나는 위의 문제에 대해 '의사 결정 프로세스'라는 이름을 사용했지만, 여기에서 '프로세스(Process)'라는 단어를 사용하는데 여러가지 차질이 생겨버리고 만 것이다. 그래서 나는 사람들이 알지 못하게 '계획법(Programming)'이라는 단어를 붙였다. 또한 나는 이 프로세스가 다단계로 이루어져 있으며, 시가변적(time-varing)이며, '동적(Dynamic)'이다라는 개념(idea)이 전달되길 원했다. 이 단어야말로 내가 연구하는 알고리즘의 성질을 정확하게 짚어내었고, 게다가 윌슨에게도 피해를 입히지 않으며 공군도 이 단어에선 꼬투리를 잡지 못했으니 그야말로 일석이조의 효과를 누린 것이다._
 
 즉, Dynamic 이라는 용어는 DP 알고리즘의 시-가변적(time-varing)이고 동적(dynamic)인 개념을 나타내도록 채택한 용어이고,  
-Programming 이라는 용어는 우리가 흔히 말하는 프로그래밍을 뜻하는 것이 아닌 계획법 이라는 의미로, 당시 Process라는 용어를 사용할 수 없게 되자 차용한 용어이다.. programming이라는 용어는 최적의 해를 찾는 연구 분야에서 최적의 프로그램을 찾아낸다-는 의미로 사용된다.
+Programming 이라는 용어는 우리가 흔히 말하는 프로그래밍을 뜻하는 것이 아닌 계획법 이라는 의미로, 당시 Process라는 용어를 사용할 수 없게 되자 차용한 용어이다..  
+Programming이라는 용어는 최적의 해를 찾는 연구 분야에서 최적의 프로그램을 찾아낸다-는 의미로 사용된다.
 
 <br>
 
@@ -90,7 +91,7 @@ $$
   \end{aligned}
 $$
 
-<br>
+### recursive algorithm
 
 다음은 재귀적으로 구현한 n번째 피보나치 수를 구하는 알고리즘이다.
 
@@ -107,8 +108,11 @@ def fibonacci(n: int):
 
 ![>computing 5th fibonacci recursion tree](picture/fibo-tree.png)
 
-그림에서 볼 수 있듯이, 중복된 계산을 매우 많이 하게 된다.  
-5번째의 피보나치수를 구하는데만해도 2번째 피보나치수(fib(2))는 3번이나 계산해야 한다. 만약 더 큰 수의 피보나치 수를 계산한다면 이러한 중복 계산은 폭발적으로 많아지게 된다.
+그림에서 볼 수 있듯이, 중복된 계산을 매우 많이 하게 된다.
+
+> ex) 5번째의 피보나치수를 구하는데만해도 2번째 피보나치수(fib(2))는 3번이나 계산해야 한다.
+
+만약 더 큰 수의 피보나치 수를 계산한다면 이러한 중복 계산은 폭발적으로 많아지게 된다.
 
 다음은 위 알고리즘의 time complexity 계산이다.
 
@@ -125,9 +129,9 @@ $$
   \end{aligned}
 $$
 
-위와 같이, exponential 한 time-complexity를 가지는 것을 볼 수 있다.
+위와 같이, exponential time complexity를 가지는 것을 볼 수 있다.
 
----
+### DP algorithm
 
 다음은 dp를 활용해 iterative하게 구현한 n번째 fibonacci 수를 구하는 알고리즘이다.
 
@@ -151,8 +155,8 @@ def fibonacci(n: int):
 <br>
 
 두 알고리즘을 비교하면, 한 항을 1ns(10^-9초) 안에 계산 할 수 있다고 가정하고 120번째의 피보나치 수를 계산할 때  
-첫 번째 $$2^{n/2}$$의 time-complexity 알고리즘은 36년의 시간이 걸린다.  
-그에 비해 두 번째 $$n+1$$의 time-complexity 알고리즘은 121나노초만의 시간이 걸린다.
+첫 번째 $$2^{n/2}$$의 time complexity 알고리즘은 36년의 시간이 걸린다.  
+그에 비해 두 번째 $$n+1$$의 time complexity 알고리즘은 121나노초만의 시간이 걸린다.
 
 메모리에 값을 저장해가며 중복된 계산을 피하는 알고리즘으로 시간을 획기적으로 줄일 수 있음을 보여준다.
 
@@ -160,9 +164,28 @@ def fibonacci(n: int):
 
 > 플로이드-와셜 알고리즘
 
+먼저 그래프(graph)에 대한 용어를 정리하자.
+
+본 글 시리즈에서는 다음과 같은 표현을 사용한다.
+
+- Graph
+  그래프
+- Vertex, Node
+  정점, 꼭짓점, 노드
+- Edge, Arc
+  간선, 모서리, 엣지
+- directed graph <-> undirected graph
+  방향 그래프, 무향 그래프
+- weight
+  가중치
+- path
+  경로
+- cycle
+  순환, 싸이클
+
 ### Shortest Path Problem
 
-그래프에서 **한 꼭짓점에서 다른 꼭짓점까지의 최단 경로**(가중치의 합, 가중치가 없는 그래프에서는 꼭짓점의 개수)를 구하는 문제를 `Shortest Path Problem(최단 경로 문제)`이라고 한다.
+그래프에서 **한 정점에서 다른 정점까지의 최단 경로**(가중치의 합, 가중치가 없는 그래프에서는 꼭짓점의 개수)를 구하는 문제를 `Shortest Path Problem(최단 경로 문제)`이라고 한다.
 
 ![>weighted, direct graph](picture/weighted-graph.png)
 
@@ -177,16 +200,20 @@ def fibonacci(n: int):
 
 ### Optimization Problem
 
-최단 경로 문제는 `최적화 문제(Optization Problem)`이다.  
-최적화 문제에는
+최단 경로 문제는 `최적화 문제(Optization Problem)`이다.
+
+최적화 문제는
 
 - instance마다 둘 이상의 **후보 solution**들이 있으며,
 - 각 후보 solution에는 **관련된 값**이 있고,
 - instance의 solution은 후보 중 **최적의(optimal) 값**을 갖는 solution이다.
 
+즉, 문제에 대해 여러가지의 답이 나올 수 있을 때 그 중 가장 최적의 해를 찾는 문제이다.
+<br>
+
 예를 들어 위 최단 경로 문제의 경우,
 
-- 후보 solution은 instance로 주어진 꼭짓점에서 꼭짓점 사이의 이어질 수 있는 경로들이고,
+- 후보 solution은 instance로 주어진 정점 간 이어질 수 있는 경로들이고,
 - 각 후보 solution에 관련된 값은 경로의 길이이며,
 - 최적의 solution은 이 경로들 중 최솟값이다.
 
@@ -194,10 +221,10 @@ def fibonacci(n: int):
 
 이 문제를 해결하는데 가장 명백한 알고리즘은, instance로 주어진 꼭짓점들 사이의 **모든 경로를 구하고**, 그 중 최솟값을 구하는 Brute-Force 알고리즘일 것이다.
 
-하지만 이러한 방법은 exponential-time보다 더 나쁜 time-complexity를 가진다.
+하지만 이러한 방법은 exponential-time보다 더 나쁜 time complexity를 가진다.
 
 예를 들어서, 모든 꼭짓점으로부터 다른 모든 꼭짓점으로 모서리가 연결된 그래프라고 가정하자.  
-한 꼭짓점 $$v_x$$에서 다른 꼭짓점$$vy$$로 가는 모든 경로를 구하려면
+한 꼭짓점 $$v_x$$에서 다른 꼭짓점$$v_y$$로 가는 모든 경로를 구하려면
 
 - $$v_x$$에서 출발하여 도착할 수 있는 모든 꼭짓점의 수는 $$n-2$$개
 - 그 중 하나를 선택하면, 그 다음 도착할 수 있는 꼭짓점의 수는 $$n-3$$개
@@ -214,8 +241,8 @@ $$
   \end{aligned}
 $$
 
-팩토리얼의 time-complexity는 exponential time-complexity보다도 더 나쁘다.  
-따라서 우리는 Brute Force가 아닌 더 효율적인 알고리즘을 고려해야 한다.
+팩토리얼의 time complexity는 exponential time complexity보다도 더 나쁘다.  
+따라서 우리는 Brute Force보다 효율적인 방법을 고려해야 한다.
 
 ### Floyd-Warshall Algorithm
 
@@ -223,7 +250,7 @@ DP를 사용해서 해당 문제에 대해 cubic-time 알고리즘을 만들 수
 
 #### Adjacency matrix
 
-먼저 N개의 꼭짓점을 가지는 가중 그래프를 다음과 같이 $$n\times n$$ 행렬 $$W$$로 나타낼 수 있다.  
+먼저 N개의 노드를 가지는 가중 그래프를 다음과 같이 $$n\times n$$ 행렬 $$W$$로 나타낼 수 있다.  
 이러한 행렬은 그래프의 `인접 행렬(adjacency matrix)`이라고 한다.
 
 $$
@@ -251,9 +278,9 @@ $$
 
 #### Shortest path matrix
 
-그리고 우리가 구하고 싶은, `간선들 사이의 최단 경로를 나타내는 행렬`을 표현해보자.
+그리고 우리가 구하고 싶은, `정점들 사이의 최단 경로를 나타내는 행렬`을 표현해보자.
 
-예를 들어, 위의 그래프는 다음과 같은 **간선들간 최단 경로를 나타내는 행렬 D** 을 가진다.
+예를 들어, 위의 그래프는 다음과 같은 **정점들간 최단 경로를 나타내는 행렬 D** 을 가진다.
 
 $$
 \begin{array}{c|c}
@@ -275,7 +302,11 @@ $$
 
 <br>
 
-$$D^{(k)} \quad ( 0 \leq k \leq n)$$ 를 $$v_1$$에서 $$v_k$$까지의 정점만을 거쳐서 만들 수 있는 최단 경로 행렬 $$D$$라고 정의하자.
+---
+
+<br>
+
+$$D^{(k)} \quad ( 0 \leq k \leq n)$$ 를 $$v_1$$에서 $$v_k$$까지의 정점만을 거쳐갈 수 있는 후보로 삼아 만들 수 있는 최단 경로 행렬 $$D$$라고 정의하자.
 
 $$D^{(0)}$$은 다른 정점을 거치지 않고 가는 최단 경로이기 때문에 $$v_i$$에서 $$v_j$$로 가는 모서리의 가중치, 즉 배열 $$W$$라고 할 수 있다.  
 $$D^{(n)}$$은 다른 모든 정점을 거칠 수 있는 경로이기 때문에 그 자체로 최단 경로(Shortest Path), 즉 배열 $$D$$라고 할 수 있다.
@@ -340,7 +371,7 @@ $$D^{(k)}[i][j]$$의 값은 두 경우의 값을 모두 구한 뒤 둘 중 작�
 
 $$
   \begin{aligned}
-   D^{(k)}[i][j] = \text{minimum} ( D^{(k-1)}[i][j], \quad D^{(k-1)}[i][k] + D^{(k-1)}[k][j])
+   D^{(k)}[i][j] = \text{min} ( D^{(k-1)}[i][j], \quad D^{(k-1)}[i][k] + D^{(k-1)}[k][j])
   \end{aligned}
 $$
 
@@ -367,13 +398,11 @@ def floyd_warshall(W: list):
 
 첫번째 k loop가 도는 동안 k열과 k행의 값은 변하지 않기 때문에 배열 D 하나만 사용해서 알고리즘을 구성할 수 있다.
 
-> Floyd-Warshall Algorithm
+### Analyze
 
-### Anallyze
+플로이드-와셜 알고리즘의 `time complexity`를 분석해보자.
 
-플로이드-와셜 알고리즘의 `time-complexity`를 분석해보자.
-
-input에 관계 없이 **input size** $$n$$ (len($$w$$) = 배열 $$W$$의 길이 = 그래프의 정점의 개수 ) 에만 영향을 받기 때문에 **every-time** complexity를 가진다.
+input에 관계 없이 **input size** $$n$$ (len($$W$$) = 배열 $$W$$의 길이 = 그래프의 정점의 개수 ) 에만 영향을 받기 때문에 **every-time** complexity를 가진다.
 
 알고리즘에서 총 3번의 반복문을 input size $$n$$만큼 돌기 때문에
 
@@ -430,7 +459,7 @@ def path(P: list, i: int, j: int):
     path(P, v, j)
 ```
 
-이 알고리즘의 time-complexity는
+이 알고리즘의 time complexity는
 
 $$
   \begin{aligned}
@@ -476,7 +505,7 @@ Problem의 어떠한 instance에 대한 최적의 solution이
 $$v_k$$가 $$v_i$$에서 $$v_i$$로 가는 최단 경로에 포함된 정점이라면,  
 $$v_i$$에서 $$v_k$$까지의 경로와 $$v_k$$에서 $$v_i$$까지의 경로도 최적의 solution이여야 한다는 것을 보았다.
 
-따라서 처음 instance의 최적 solution인 $$D[i][j]$$은 하위 instance들의 최적 solution인 $$D[i][k]$$와 $$D[k][j]$$를 포함하고, 이는 `최적성의 원칙`이 적용된다.
+따라서 처음 instance의 최적 solution인 $$D[i][j]$$은 하위 instance들의 최적 solution인 $$D[i][k]$$와 $$D[k][j]$$를 포함하고, 이는 `최적의 원칙`이 적용된다.
 
 하지만 다음과 같은 예제를 보자
 
@@ -489,13 +518,12 @@ $$v_1$$에서 $$v_4$$로의 최장 경로는 [$$v1, v3, v2, v4$$]이다.
 
 따라서 이 문제에 대해서는 `최적의 원칙`이 적용되지 않는다.
 
-## LCS, LIS
-
 ## more...
 
 > 추가예정
 
-0-1 Knapsack Problem  
+LCS, LIS  
+binomial coefficient
 Bellman-Ford Algorithm  
 chain matrix multiplication  
 sum of subset problem  

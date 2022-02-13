@@ -17,12 +17,12 @@ _⌜Foundations of Algorithms의 5장 Backtracking에 관해 정리하고자 한
 <details>
    <summary>💡RoadMap</summary>
 
-1. Algorithms; Efficiency, Analysis, and Order
-2. Divide-and-Conquer
-3. Dynamic Programming
-4. Greedy
+1. [Algorithms; Efficiency, Analysis, and Order](https://41312432.netlify.app/algorithm/algorithm1/)
+2. [Divide-and-Conquer](https://41312432.netlify.app/algorithm/algorithm2/)
+3. [Dynamic Programming](https://41312432.netlify.app/algorithm/algorithm3/)
+4. [Greedy](https://41312432.netlify.app/algorithm/algorithm4/)
 5. `Backtracking`
-6. Branch-and-Bound
+6. [Branch-and-Bound](https://41312432.netlify.app/algorithm/algorithm6/)
 7. Sorting
 8. Searching
 9. NP
@@ -45,7 +45,8 @@ Backtracking 알고리즘은 모든 경우에 대해서 solution을 찾다가, s
 
 ### Constraint-Satisfication Problems
 
-CSP, Constarnt-statisfication problems(제약 충족 문제)는 특정한 집합, `특정한 domain`에서 `특정 기준(조건, criterion)`을 충족시키도록 선택하는 문제이다. Backtracking 알고리즘은 CSP를 해결하는데 사용된다.
+CSP, Constarnt-statisfication problems(제약 충족 문제)는 특정한 집합(a specified set), `특정한 domain`에서 `특정 기준(조건, criterion)`을 충족시키도록 그 집합의 아이템들의 순서(sequence)를 선택하는 문제이다.  
+Backtracking 알고리즘은 CSP를 해결하는데 사용된다.
 
 ## Depth-First Search
 
@@ -101,7 +102,7 @@ root를 depth 0 이라고 할 때, 그 밑의 노드들의 depth는 행을 나�
 
 ### Pruning
 
-위 트리에 무작정 preorder traversal을 적용한다면, 이것은 tree를 전부 탐색하기 떄문에 brute force와 같은 time-complexity를 가질것이다.
+위 트리에 무작정 preorder traversal을 적용한다면, 이것은 tree를 전부 탐색하기 떄문에 brute force와 같은 time complexity를 가질것이다.
 
 <br>
 
@@ -110,7 +111,7 @@ Backtracking 알고리즘에서는 특정 domain에서 선택한 아이템이 **
 그러한 노드를 `non-promising(유망하지 않음)다고` 한다.
 
 Backtracking은 state space tree를 DFS로 탐색하고, 탐색중에 node가 non-promising이라면 그 노드의 부모로 다시 backtracking 하는 알고리즘이다.  
-따라서 Brute-Force 알고리즘보다 훨씬 일찍 가능할 수 없는 solution을 탐색하는 경우를 제할 수 있고, time-complexity를 효율적으로 가져갈 수 있다.
+따라서 Brute-Force 알고리즘보다 훨씬 일찍 가능할 수 없는 solution을 탐색하는 경우를 제할 수 있고, time complexity를 효율적으로 가져갈 수 있다.
 
 이렇게 non-promising인 노드를 방문 할 때 그 노드와 그 자식 노드의 탐색을 멈추고 부모 노드로 backtracking하는 과정을 `pruning(가지치기)`라고 한다.
 
@@ -175,7 +176,7 @@ def promising(row):
     return flag
 ```
 
-### analyze
+### Analyze
 
 이 알고리즘을 분석하기 위해, 일단 퀸의 개수 n에 대해서 state space tree의 노드 개수를 알아내야한다. (upper bound)
 
@@ -189,13 +190,15 @@ $$
 
 개가 있다.
 
-하지만 backtracking 알고리즘에서 pruning을 하기 떄문에, state space tree의 모든 노드를 탐색하지 않을 수도 있기 때문에, 경우마다 매우 다르다.
+하지만 이렇게 upper bound를 조사하는것은 의미가 없다.  
+Backtracking을 얼마나 많이 해서 pruning을 얼마나 했는지는 상한선을 통해서는 알 수 없기 때문이다.  
+그는 instance마다 판이하게 다를 수 있다.
 
 따라서 의미있는 정확한 time-comlexity를 정의내리기란 쉽지 않다.
 
 ## Monte Calro Algorithm
 
-앞서 살펴보았다시피, backtracking algorithm에서 의미있는 time-complexity를 얻기는 쉽지 않다.
+앞서 살펴보았다시피, backtracking 알고리즘에서 의미있는 time complexity를 얻기는 쉽지 않다.
 
 만약 같은 $$n$$값을 가지는(같은 크기의) instance 에 대해서 그 중 하나는 매우 적은 수의 노드만 검사해야 하는 반면, 다른 하나는 state space tree를 거의 전부 탐색해야 할 수도 있다.
 
