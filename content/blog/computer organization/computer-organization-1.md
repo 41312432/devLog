@@ -1,5 +1,5 @@
 ---
-title: Computer Organization & Design
+title: Computer Organization & Design 1
 date: 2022-02-14 16:02:07
 category: computer organization
 thumbnail: { thumbnailSrc }
@@ -8,7 +8,7 @@ draft: false
 
 > _Introduction_
 
-_아주대학교의 '컴퓨터 구조' 강의와 책 ⌜Computer Organization and Design⌟을 바탕으로 컴퓨터 구조에 대해 정리하고자 한 글입니다._
+_아주대학교의 '컴퓨터 구조' 강의와 책 ⌜Computer Organization and Design⌟을 바탕으로 **컴퓨터 구조**에 대해 정리하고자 한 글입니다._
 
 <!-- thumbnail -->
 
@@ -142,7 +142,7 @@ _프로그램을 빠르게 만들기 위해 메모리 공간(memory space)를 �
    - Storage와 Memory를 할당한다(Allocating).
    - Scheduling
    - Sharing resource
-     운영체제에 대해서는 따로 정리할것이다.
+     > _운영체제에 대해서는 따로 정리한다._
 
 2. `컴파일러(Compiler)`
 
@@ -377,8 +377,9 @@ $$
   예를 들어, JAVA와 같은 데이터 추상화(Data abstraction)를 많이 지원하는 언어는 간접 호출(indirect call)을 많이 요구하며, 이는 더 높은 CPI instruction을 사용한다.
 
 - `Compiler`  
-  컴파일러가 instruction의 수와 CPI에 영향을 준다.  
-  컴파일러에 대해서는 다른 글에서 따로 정리한다.
+  컴파일러가 instruction의 수와 CPI에 영향을 준다.
+
+  > _컴파일러에 대해서는 다른 글에서 따로 정리한다._
 
 - `Instruction Set Architecture (ISA)`  
   ISA가 Instruction의 수, clock frequency, CPI에 영향을 준다.  

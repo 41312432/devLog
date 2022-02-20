@@ -8,7 +8,7 @@ draft: false
 
 > _Backtracking_
 
-_⌜Foundations of Algorithms의 5장 Backtracking에 관해 정리하고자 한 글입니다._
+_⌜Foundations of Algorithms의 5장 **Backtracking**에 관해 정리한 글입니다._
 
 <!-- thumbnail -->
 

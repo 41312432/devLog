@@ -8,7 +8,7 @@ draft: false
 
 > _Dynamic Programming_
 
-_⌜Foundations of Algorithms의 3장 Dynamic Programming에 관해 정리하고자 한 글입니다._
+_⌜Foundations of Algorithms의 3장 **Dynamic Programming**에 관해 정리한 글입니다._
 
 <!-- thumbnail -->
 

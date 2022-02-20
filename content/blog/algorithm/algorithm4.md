@@ -8,7 +8,7 @@ draft: false
 
 > _Greedy_
 
-_⌜Foundations of Algorithms의 4장 Greedy Approach에 관해 정리하고자 한 글입니다._
+_⌜Foundations of Algorithms의 4장 **Greedy Approach**에 관해 정리한 글입니다._
 
 <!-- thumbnail -->
 

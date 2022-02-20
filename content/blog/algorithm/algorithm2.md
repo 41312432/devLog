@@ -8,7 +8,7 @@ draft: false
 
 > _Divide-and-Conquer_
 
-_⌜Foundations of Algorithms⌟의 2장 Divide-and-Conquer 알고리즘에 관해 정리하고자 한 글입니다._
+_⌜Foundations of Algorithms⌟의 2장 **Divide-and-Conquer** 에 관해 정리한 글입니다._
 
 <!-- thumbnail -->
 
