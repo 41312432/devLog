@@ -14,7 +14,9 @@ _아주대학교의 '컴퓨터 구조' 강의와 책 ⌜Computer Organization an
 
 # Introduction
 
-2019년 가을학기에 수강한 아주대학교 김상훈 교수님의 운영체제(SCE-212) 강의와 책 ⌜Computer Organization and Design (The Hardware/Software Interface) - David A. Patterson⌟ 을 중심으로 컴퓨터과학의 중요 분야 중 하나인 `컴퓨터 구조`에 관해 정리하고자 한다.
+2019년 가을학기에 수강한 아주대학교 김상훈 교수님의 운영체제(SCE-212) 강의와  
+책 ⌜Computer Organization and Design (The Hardware/Software Interface) - David A. Patterson⌟  
+을 중심으로 컴퓨터 과학의 중요 분야 중 하나인 `컴퓨터 구조`에 관해 정리하고자 한다.
 
 <br>
 
@@ -22,6 +24,7 @@ _아주대학교의 '컴퓨터 구조' 강의와 책 ⌜Computer Organization an
 - 해당 강의와 책의 내용을 제외하고도 모든 관련 내용을 공부하고 참조하여 정리할 수 있다.
 - 주제의 흐름이나 순서는 강의를 기준으로, 해당 책을 참고해서 한다. 단, 각 주제의 세부 내용은 달라질 수 있다.
 - 단어나 설명은 해당 책의 표현(원어)을 기준으로 한다. 단, 널리 알려진 표현은 한국어를 비롯한 다른 표현으로도 대체될 수 있다.
+- 자료구조(data structure)나 디지털 시스템(digital system, digital circuit), 컴파일러(compiler), 알고리즘(algorithm), 어셈블러(assembler)등 해당 강의를 진행하며 나올 수 있는 컴퓨터 과학의 다른 연관된 도메인은 따로 만들어 정리한다.
 
 <br>
 
@@ -42,7 +45,7 @@ _아주대학교의 '컴퓨터 구조' 강의와 책 ⌜Computer Organization an
 
 1960년대 컴퓨터 성능에 대한 가장 주요한 제약사항은 컴퓨터 **메모리의 크기**였다.  
 그래서 당시 프로그래머들은 다음과 같은 신조(credo)를 준수했다:  
-_프로그램을 빠르게 만들기 위해 메모리 공간(memory space)를 최소화해서 설계한다._
+_프로그램을 빠르게 만들기 위해 **메모리 공간(memory space)를 최소화**해서 설계한다._
 
 하지만 지난 몇 년간 컴퓨터 설계(computer design)와 메모리 기술의 발전으로 몇몇 특수한 경우(임베디드 시스템을 포함한)를 제외하고 대부분의 어플리케이션에서 이와 같은 메모리 크기의 중요성은 크게 줄어들었다.
 
