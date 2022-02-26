@@ -89,7 +89,7 @@ MIPS **어셈블러(Assembler)**가 Assembly어를 **MIPS Instruction**으로 �
 
 기본적인 `Arithmetic operation(수학 연산자)`부터 알아보자.
 
-`add`는 두 레지스터의 값을 더해 레지스터에 저장한다.  
+`add(Addition`는 두 레지스터의 값을 더해 레지스터에 저장한다.  
 `sub(Subtract)`는 두 레지스터의 값을 빼 레지스터에 저장한다.
 
 ```txt
