@@ -25,9 +25,9 @@ start with [gatsby-starter-bee](https://github.com/JaeYeopHan, 'start-bee')
 ┃ ┗ 📜[Foundation of Algorithms Ch6. - Branch-and-Bound](https://41312432.netlify.app/algorithm/algorithm6/)  
 ┣ 📂Computer Organization & Architecture  
 ┃ ┣ 📜[Computer Organization 1 - computer organization & architecture](https://41312432.netlify.app/computer%20organization/computer-organization-1/)  
-┃ ┗ 📜[Computer Organization 2-(1) - ISA](<https://41312432.netlify.app/computer%20organization/computer-organization-2-(1)/)  
-┃ ┗ 📜[Computer Organization 2-(2) - ISA](<https://41312432.netlify.app/computer%20organization/computer-organization-2-(2)/)  
-┃ ┗ 📜[Computer Organization 2-(1) - Arithmetic](<https://41312432.netlify.app/computer%20organization/computer-organization-3/)  
+┃ ┗ 📜[Computer Organization 2-(1) - ISA](https://41312432.netlify.app/computer%20organization/computer-organization-2-1/)  
+┃ ┗ 📜[Computer Organization 2-(2) - ISA](<https://41312432.netlify.app/computer%20organization/computer-organization-2-2/)  
+┃ ┗ 📜[Computer Organization 2-(1) - Arithmetic](https://41312432.netlify.app/computer%20organization/computer-organization-3/)  
 ┣ 📂essay  
 ┃ ┗ 📜[개발자는 어떤 글을 쓰는가?](https://41312432.netlify.app/essay/writing_of_developers/)  
 ┗
