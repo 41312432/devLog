@@ -8,7 +8,7 @@ draft: false
 
 > _Arithmetic for Computer_
 
-_⌜Computer Organization and Design⌟의 2장 **Arithmetic for Computer**에 대해 정리한 글입니다._
+_⌜Computer Organization and Design⌟의 3장 **Arithmetic for Computer**에 대해 정리한 글입니다._
 
 <!-- thumbnail -->
 
