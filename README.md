@@ -26,7 +26,7 @@ start with [gatsby-starter-bee](https://github.com/JaeYeopHan, 'start-bee')
 ┣ 📂Computer Organization & Architecture  
 ┃ ┣ 📜[Computer Organization 1 - computer organization & architecture](https://41312432.netlify.app/computer%20organization/computer-organization-1/)  
 ┃ ┗ 📜[Computer Organization 2-(1) - ISA](https://41312432.netlify.app/computer%20organization/computer-organization-2-1/)  
-┃ ┗ 📜[Computer Organization 2-(2) - ISA](<https://41312432.netlify.app/computer%20organization/computer-organization-2-2/)  
+┃ ┗ 📜[Computer Organization 2-(2) - ISA](https://41312432.netlify.app/computer%20organization/computer-organization-2-2/)  
 ┃ ┗ 📜[Computer Organization 3 - Arithmetic](https://41312432.netlify.app/computer%20organization/computer-organization-3/)  
 ┃ ┗ 📜[Computer Organization 4-(1) - Processor](https://41312432.netlify.app/computer%20organization/computer-organization-4-1/)  
 ┃ ┗ 📜[Computer Organization 4-(2) - Processor](https://41312432.netlify.app/computer%20organization/computer-organization-4-2/)  
