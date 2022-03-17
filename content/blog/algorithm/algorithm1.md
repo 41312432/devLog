@@ -6,7 +6,7 @@ thumbnail: { thumbnailSrc }
 draft: false
 ---
 
-> _Alogirthm: Efficiency, Analysis, and Order_
+> _Algorithm: Efficiency, Analysis, and Order_
 
 _아주대학교의 '알고리즘' 강의와 책 ⌜Foundations of Algorithms⌟을 바탕으로 **알고리즘**에 대해 정리하고자 한 글입니다._
 
