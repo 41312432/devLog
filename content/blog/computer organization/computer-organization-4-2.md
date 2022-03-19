@@ -105,7 +105,7 @@ MIPS insturction은 일반적으로 다음과 같은 5가지 단계(stage)로 �
 
 ---
 
-### Pipelined datapath
+### Pipelined Datapath
 
 ![>MIPS Pipelined datapath](picture/pipeline.png)
 
@@ -492,7 +492,7 @@ control hazard를 해결하기 위한 두가지 방법과 한가지의 최적화
 
 <br>
 
-##### Reducing delay of branches
+##### Reducing branch delay
 
 Branch의 성능을 향상시키는 한가지 방법은 분기가 행해지는(taken)데 들이는 비용을 줄이는 것이다.
 
@@ -512,7 +512,7 @@ Cycle3에서 beq가 ID 단계에서 banch taken되었기 때문에 cycle4에서 
 
 즉, 매 branch마다 위와 같이 1 cycle만 무조건 stall 하는 방법으로 control hazard를 해결할 수 있다.
 
-##### Assume Branch Not Taken
+##### Branch Prediction
 
 두번째 방법은 앞서 행한 방법처럼 branch가 되지 않을것처럼 가정하고 그냥 다음 순차적인 명령어들을 파이프라인에 따라 실행하는 것이다.
 
@@ -526,7 +526,7 @@ Cycle3에서 beq가 ID 단계에서 banch taken되었기 때문에 cycle4에서 
 
 유닛을 flush하는 방법은 load-use data hazard의 예시처럼 단순히 control value를 0으로 변경해주기만 하면 된다.
 
-##### Dynamic branch prediction
+##### Dynamic Branch Prediction
 
 branch not taken 방법은 branch prediction의 한가지 간단한 형태이다.  
 이러한 방법은 MIPS와 같이 단순한 5단계 파이프라인의 경우에는 적합하다.
@@ -637,7 +637,7 @@ branch prediction을 통해 분기를 할지 말지를 효율적으로 계산할
 
 분기 주소를 예측할 방법으로 고려되는 또 하나의 방법은 `branch prediction buffer`를 이용하는 것이다.
 
-## datapath summary
+## Datapath summary
 
 이번 장에서 언급한 모든 프로세스를 적용한 datapath를 나타내었다.
 
