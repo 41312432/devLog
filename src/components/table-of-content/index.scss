@@ -22,7 +22,7 @@ nav.container {
   .contents {
     ul {
       list-style: none;
-      margin-left: 20px;
+      margin-left: 15px;
       margin-bottom: 0px;
     }
     ul > li {
@@ -30,6 +30,7 @@ nav.container {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      margin-bottom: 0;
     }
     ul > li a {
       color: $light-toc-content-color;
