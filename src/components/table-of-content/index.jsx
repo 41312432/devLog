@@ -14,7 +14,7 @@ export const TableOfContents = ({ items, currentHeaderUrl }) => {
   }, [currentHeaderUrl])
   return items ? (
     <nav className="table-of-contents container">
-      <h3 className="title">TABLE OF CONTENTS</h3>
+      <h3 className="title">TOC</h3>
       <div
         className="contents"
         dangerouslySetInnerHTML={{ __html: replaceItems }}
