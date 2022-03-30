@@ -33,7 +33,7 @@ $heading-one-color: #0a9696;
 $dark-heading-one-color: #ff8c41;
 
 //thumbnail
-$post-time-color: rgba(211, 120, 153, 0.7);
+$post-time-color: #0a969660;
 $thumbnail-border-color: #eeeeee;
 $thumbnail-subheading-color: #0a9696;
 $light-hover-background-color: rgba(10, 10, 10, 0.05);
@@ -44,7 +44,7 @@ $navigator-background-color: #fceff7;
 $blockquote-text-color: #909da1;
 
 // code
-$inline-dimmed-color: #0a969670;
+$inline-dimmed-color: #0a969680;
 $inline-text-color: #333;
 
 // category
@@ -91,3 +91,5 @@ $dark-toc-content-color: rgba(255, 140, 65, 0.5);
 $dark-toc-current-color: #ff8c41;
 
 $dark-blockquote-text-color: #ff8c41;
+
+$dark-post-time-color: #ff8c4180;
