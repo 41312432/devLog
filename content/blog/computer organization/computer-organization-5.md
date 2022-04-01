@@ -263,6 +263,53 @@ write-thorugh 방법에서 miss가 발생했을 때, `write allocate`라고 불�
 
 write-back에서는 보통 fetch the block 방식을 사용한다.
 
+### Measuring Cache Performance
+
+Cache 성능을 측정하고 분석하는 방법을 살펴보자.
+
+CPU시간은 프로그램을 실행하는데 소모되는 싸이클과 메모리를 stall하는데 소모되는 싸이클로 구성된다.
+
+이 때, 일반적으로 cache hit time은 프로그램을 실행하는데 소모되는 싸이클에 포함된다고 가정한다.
+
+따라서,
+
+$$
+\begin{aligned}
+\text{CPU Time} &= (\text{CPU execution clock cycle} + \text{Memory stall clock cycle}) \\
+                & \quad \times \text{Clock cycle time}
+\end{aligned}
+$$
+
+이다.
+
+Memory stall clock cycle은 다음과 같이 정의할 수 있다.
+
+$$
+\begin{aligned}
+\text{Memory stall clock cycle} &= (\text{Read stall cycle} + \text{Write stall cycle}) \\
+\end{aligned}
+$$
+
+이 때, Read stall cycle과 Write stall cycle은
+
+$$
+\begin{aligned}
+\text{Read stall cycle} &= \frac{\text{Reads}}{\text{Program}} \times \text{Read miss rate} \times \text{Read miss penalty} \\
+\text{Write stall cycle} &= \frac{\text{Writes}}{\text{Program}} \times \text{Write miss rate} \times \text{Write miss penalty} + \text{Write Buffer Stall}
+\end{aligned}
+$$
+
+대부분의 write-through cache 구조에서는 read와 write miss penalty가 메모리에서 블록을 fetch해 오는 시간으로 같다.(write buffer stall은 무시한다.)
+
+즉, 위에서의 read와 write을 하나의 miss rate과 miss penalty로 조합할 수 있다.
+
+$$
+\begin{aligned}
+\text{Read stall cycle} &= \frac{\text{Memory Access}}{\text{Program}} \times \text{Miss rate} \times \text{Miss penalty}\\
+&= \frac{\text{Instruction}}{\text{Program}} \times \frac{\text{Miss}}{\text{Instruction}} \times \text{Miss penalty}
+\end{aligned}
+$$
+
 ### Associative Cache
 
 지금까지는 cache에 블록을 배치할 때 단순한 방식을 사용했다.
@@ -313,7 +360,7 @@ n-way set associative cache의 경우 모든 set은 병렬적인 회로로 한�
 
 따라서 associativity를 높이면 miss rate을 줄일 수 있지만, hit time이 증가할 수 있다.
 
-### Replacement Policy
+#### Replacement Policy
 
 Direct mapped cache에서 miss가 발생하면 요청된 블록은 정확히 한 위치에만 갈 수 있고, 그 위치의 블록을 교체해야 한다. 즉, 어떤 블록을 교체할지 선택할 필요가 없다.
 
@@ -339,49 +386,152 @@ set-associative cache에서는 요청된 블록이 선택하는 set의 블록 �
 
 오늘날의 실제 컴퓨터에서는 LRU보다 훨씬 복잡한 알고리즘을 사용한다.
 
-### Measuring Cache Performance
+### Multilevel Cache
 
-Cache 성능을 측정하고 분석하는 방법을 살펴보자.
+최신 프로세서의 빠른 clock 속도와 DRAM에 액세스하는데 걸리는 시간의 격차를 줄이기 위해 대부분의 프로세서는 추가 수준의 caching을 지원한다.
 
-CPU시간은 프로그램을 실행하는데 소모되는 싸이클과 메모리를 stall하는데 소모되는 싸이클로 구성된다.
+이 second level cache(Level-2 cache, L-2 cache)는 보통 프로세서와 같은 칩 상에 존재하며 메인 cache(primary cache, L-1 cache)에서 miss가 발생할 때 마다 엑세스된다.  
+이 L-2 cache는 L1 cache보다는 크고 느리지만, 여전히 메인 메모리보다는 빠르다.
 
-이 때, 일반적으로 cache hit time은 프로그램을 실행하는데 소모되는 싸이클에 포함된다고 가정한다.
+2레벨 cache에 원하는 데이터가 포함되어 있는 경우, 1레벨 cache의 miss penalty는 2레벨 cache의 엑세스 시간이 된다.
 
-따라서,
+이것은 메인 메모리의 엑세스 시간보다 훨씬 짧아진다.
 
-$$
-\begin{aligned}
-\text{CPU Time} &= (\text{CPU execution clock cycle} + \text{Memory stall clock cycle}) \\
-                & \quad \times \text{Clock cycle time}
-\end{aligned}
-$$
+primary cache와 secondary cache 모두에 데이터가 없을 경우 메인 메모리 엑세스가 필요하며 더 큰 miss penalty가 발생한다.
 
-이다.
+## Virtual Memory
 
-Memory stall clock cycle은 다음과 같이 정의할 수 있다.
+cache가 메인 메모리에 대해 어떻게 작용하는지, 어떻게 최근 사용한 데이터에 대해 빠르게 접근하는지 살펴보았다.
 
-$$
-\begin{aligned}
-\text{Memory stall clock cycle} &= (\text{Read stall cycle} + \text{Write stall cycle}) \\
-\end{aligned}
-$$
+비슷하게, 메인 메모리를 secondary storage에 대해 cache처럼 작동하도록 사용할 수 있다.
 
-이 때, Read stall cycle과 Write stall cycle은
+이러한 기술을 `Virtual Memory`라고 한다.
 
-$$
-\begin{aligned}
-\text{Read stall cycle} &= \frac{\text{Reads}}{\text{Program}} \times \text{Read miss rate} \times \text{Read miss penalty} \\
-\text{Write stall cycle} &= \frac{\text{Writes}}{\text{Program}} \times \text{Write miss rate} \times \text{Write miss penalty} + \text{Write Buffer Stall}
-\end{aligned}
-$$
+이러한 방법은 2가지의 주요 동기때문에 발명되었다:
 
-대부분의 write-through cache 구조에서는 read와 write miss penalty가 메모리에서 블록을 fetch해 오는 시간으로 같다.(write buffer stall은 무시한다.)
+1. 여러 프로그램 간 효율적이고 안전하게 메모리를 공유할 수 있도록 하기 위함.
+2. 적은 양의 제한도니 메인 메모리의 부담을 덜어주기 위함.
 
-즉, 위에서의 read와 write을 하나의 miss rate과 miss penalty로 조합할 수 있다.
+---
 
-$$
-\begin{aligned}
-\text{Read stall cycle} &= \frac{\text{Memory Access}}{\text{Program}} \times \text{Miss rate} \times \text{Miss penalty}\\
-&= \frac{\text{Instruction}}{\text{Program}} \times \frac{\text{Miss}}{\text{Instruction}} \times \text{Miss penalty}
-\end{aligned}
-$$
+각 프로그램들은 메인 메모리를 공유한다.
+
+여러 가상 시스템이 동일한 메모리를 공유할 수 있도록 하려면 가상 시스템은 서로 보호되어야 한다.
+
+cache에서 한 프로그램의 데이터만 포함되어 있는 것 처럼 이 경우에는 기본 메모리에 여러 가상 시스템의 활성 부분만 포함되어 있어야 한다.
+
+따라서 principle of locality는 virtual memory에서도 가능하게 하며, virtual memory를 통해 프로세서와 메인 메모리를 공유할 수 있다.
+
+이를 위해 각 프로그램들은 고유한 virtual address space를 가진다.
+
+CPU와 OS는 이 virtual address를 실제 주소(physical address)로 번역한다.
+
+![](picture/5-25.png)
+![>translate virtual address to physical address](picture/5-26.png)
+
+virtual memory의 block은 **page**라고 한다.  
+virtual memory의 translate Miss는 **page falut**라고 한다.
+
+### Page Table
+
+page fault에 대한 패널티가 매우 높기 때문에 page 배치를 최적화해서 그 빈도수를 줄여야 한다.
+
+virtual memory에서는 memory를 인덱스하는 `page table`이라는 구조를 이용해 page를 찾는다.
+
+![>page table](picture/5-27.png)
+
+각 프로그램에는 그 프로그램의 virtual address space를 메인 메모리에 매핑하는 자체 page table이 존재한다.
+
+page table역시 메인 메모리에 존재한다.
+
+하드웨어에는 physical memory의 page table의 위치를 나타내는 page table register가 포함되어 있다.
+
+Page table은 Virtual page의 수만큼 PTE(Page Table Entry)를 가진다.
+
+PTE에는 valid bit와 PPN(Physical Page Number)가 저장된다.
+
+page table은 virtual address로부터 page 번호로 인덱스해 대응하는 PTE로부터 physical address를 찾는다.  
+또한 다른 status bit도 포함한다.(referenced, dirty, valid..)
+
+만약 page가 메모리가 아닌 디스크에 존재한다면, PTE가 disk 주소를 가리킨다.
+
+### Page Falut
+
+![>Mapping pages to storage](picture/5-28.png)
+
+Virtual page의 valid vit가 꺼져있다면, 즉 메모리에 page가 없다면 page fault가 발생한다.
+
+Page fault가 발생하면 process가 exeception을 일으키고, OS가 handle 해야한다.
+
+OS가 control을 받으면, 계층의 다음 레벨(즉, physical memory)에서 page를 찾아 메모리의 어디에 배치할지를 결정한다.(cache와 메모리 사이에서 했던 것 처럼.)
+
+메모리내의 page가 언제 교체될지는 알 수 없기 때문에, OS는 통상 프로세스를 생성할 때, physical memory에 프로세스의 모든 page를 위한 space를 작성한다. 이 space를 swap space라고 한다.
+
+이 때, 각 virtual page가 physical memory의 어디에 저장될 지 기록하는 자료구조도 생성된다.
+
+그 자료구조는 page table의 일부이다.
+
+또한 OS는 각 physical page를 사용하는 프로세스와 virtual address를 추적하는 자료구조도 생성한다.
+
+Page fault가 발생했을 때, 메인 메모리의 모든 page가 사용 중인 경우 OS는 교체할 page를 선택해야 한다.
+
+Cache에서의 Miss rate을 줄이고 싶던 것과 같이, page fault를 최소화 하고 싶기 때문에 OS는 여러 방식을 도입한다.
+
+대부분의 OS는 앞서 살펴보았던 방식인 LRU 방식을 따른다.
+
+### Write
+
+Virtual memory system에서는, 다음 계층(disk)에 write 하는건 수백만 개의 cycle이 필요하다. 따라서, 디스크에 write-thorugh를 가능하게 하는 write buffer를 구현하는 것은 비현실적이다.
+
+대신 Virtual memory 에서는 write-back을 해야한다. write-back을 이용해 메모리 내에 개별적인 write을 실행하고, 그 page가 메모리에서 교체되면 page를 disk에 다시 복사해 쓴다.(write-back.)
+
+### Memory Protection
+
+VM의 가장 중요한 기능은 하나의 메인 메모리를 여러 프로세스에서 공유할 수 있도록 하면서 이러한 프로세스와 운영체제 간에 메모리를 보호하는 것이다.
+
+각 프로세스는 독자적인 Virtual Memory Space가 있다. 따라서 OS가 독립된 Virtual Page가 분리된 Physical Page에 매핑되도록 Page Table을 유지하면, 한 프로세스가 다른 프로세스에 엑세스 할 수 없게 된다.  
+이를 위해, 유저 프로세스가 직접 자체 page table을 변경할 수 없도록 해야 한다. 하지만 OS는 그 page table을 변경할 수 있다.
+
+### TLB
+
+Page table은 메모리에 저장되기 때문에 프로그램에 의한 모든 메모리 엑세스는 page table number를 얻기 위한 엑세스 한번과 그 page table entry에서 physical address를 얻기 위한 엑세스 총 두번으로 이루어진다.
+
+엑세스 성능을 향상시키는 방법은 page table에 대한 locality of referecne에 의존하는 것이다.
+
+virtual page number에 대한 번역이 사용될 경우, 그 page의 word에 대한 참조(reference)는 temporal과 spatial locality를 모두 가지기 때문에, 가까운 미래에 다시 사용될 가능성이 높다.
+
+따라서, 최신 프로세서는 최근에 번역된 주소를 추적하는 특수한 cache를 가진다.
+
+이 특수한 cache는 translation-lookaside buffer(TLB)라고 부른다.
+
+![>TLB](picture/5-29.png)
+
+메 참조마다, 먼저 TLB에서 virtual page number를 검색한다.
+
+만약 TLB Hit할 경우, physical page number를 사용해 address를 생성하고 대응하는 reference bit가 켜진다. 프로세서가 write를 수행할 경우, dirty bit도 함께 켜진다.
+
+만약 TLB Miss가 발생할 경우, 이것이 page fault인지, TLB miss인지 판단해야 한다.
+
+Page가 메모리에 존재하는 경우, TLB miss는 translate이 누락되었음을 나타낸다.
+
+이 경우에 프로세서는 page table에서 TLB로 PTE를 불러와 translate을 해 reference를 재시도한다.
+
+만약 Page가 메모리에 존재하지 않는 경우에는, 이는 page fault가 발생했음을 시사한다.
+
+이 경우에 프로세서는 exeception을 일으키고 OS를 불러온다.
+
+OS가 page를 fetching하고 page table을 업데이트한다.
+
+그리고 fault가 일어난 instruction부터 다시 시작한다.
+
+## Integrating VM and Cache
+
+![VM and Cache](picture/5-30.png)
+
+최적의 상황에서는 virtual address가 TLB에 의해 변환되어 cache로 전송되고, cache에서 적절한 data를 찾아 프로세서로 반환하는 경우이다.
+
+최악의 경우, TLB, Page Table, Cache 셋 모두에서 reference가 miss되는 경우이다.
+
+![Processing read or write-through in TLB & Cache](picture/5-31.png)
+
+위 그림은 TLB와 Cache에서 발생할 수 있는 경우를 나타낸 그림이다.
